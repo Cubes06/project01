@@ -1,0 +1,8 @@
+1) Da razgledate vasu temu
+2) Uociti tipove stranica u sajt mapi i da osmislite sajtmapu
+3) Uocite stranice van sajt mape
+4) Za svaki tip stranice kreirati kontroler u front delu i kreirati akcije za tipove stranice iz sajt mape i za stranice van sajt mape
+5) Seckanje template-a - kreiranje layouta i izvlacenje html-a po akcijama kontrolera
+6) Podesiti Bootstrap.php - uneti tipove stranica i rute za sve stranice (i one u sajt mapi i one van nje)
+
+7) Work, work, work...
