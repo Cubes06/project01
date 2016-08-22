@@ -1,0 +1,354 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head> 
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link href="css/full-slider.css" rel="stylesheet" type="text/css"/>
+        <link href="css/main.css" rel="stylesheet" type="text/css"/> 
+
+        <link href='https://fonts.googleapis.com/css?family=Mr+De+Haviland&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Leckerli+One' rel='stylesheet' type='text/css'>        
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+
+        <link rel="stylesheet" href="css/responsive.css">
+        <link href="css/datepicker.css" rel="stylesheet" type="text/css"/>
+
+    </head>
+    <body>  
+        <!-- HEADER START -->
+
+        <header>
+            <div class="container-fluid header-top">
+
+                <div class="row"> 
+                    <article class="col-xs-12 col-md-4"> 
+                        <ul class="list-inline social">  
+                            <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+                            <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                            <li><a href="#"><span class="fa fa-google"></span></a></li>
+                            <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
+                            <li><a href="#"><span class="fa fa-flickr"></span></a></li>
+                            <li><a href="#"><span class="fa fa-skype"></span></a></li>
+                        </ul>                       
+                    </article>
+                    <article class="col-xs-12 col-md-4 logo ">
+                        <a href="index.html">
+                            <h2>Eco
+                                <img src="img/logo.png" alt="" />
+                                <span>Farm</span>
+                            </h2>
+                        </a>
+                    </article>
+                    <div class="tel col-xs-12 col-md-4">
+                        <a href="logIn.html">LOG IN</a>                        
+                        <a href="registration.html">REGISTRATION</a>
+                        <a href="#" data-toggle="modal" data-target="#mod">LINK</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <nav class="navbar navbar-default secondNav">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><img src="img/logo.png" alt=""/></a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav mainMenu">
+                            <li><a href="index.html">HOME</a></li>
+                            <li><a href="#">PAGES</a></li>
+                            <li><a href="#">PRODUCTS</a></li>
+                            <li><a href="portfolioRegular.html">PORTFOLIO</a></li>                                       
+                            <li><a href="blog.html">BLOG</a></li>
+                            <li><a href="contacts.html">CONTACT</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav  shopingCart">
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <img src="img/cart.png" alt=""/>
+                                </a>
+                            </li>
+                        </ul>
+                        <form class="navbar-form navbar-right" role="search">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search Keyword">
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><span><img src="img/search.png" alt=""/></span></button>                                       
+                                    </span>
+                                </div>
+                            </div>
+                        </form>                                   
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+
+
+
+
+            <div id='shopingCartSmall'>
+                <table class="table">              
+                    <tbody>
+                        <tr id='hiddenRow'>
+                            <td>Proizvod</td>
+                            <td>Cena</td>
+                            <td>Kolicina</td>
+                            <td id='hideRow'>x</td>
+                        </tr>                                  
+                        <tr id='hiddenRow1'>
+                            <td>Proizvod</td>
+                            <td>Cena</td>
+                            <td>Kolicina</td>
+                            <td id='hideRow1'>x</td>
+                        </tr>                                   
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>TOTAL: 5670 din</td>
+                            <td></td>
+                            <td></td>
+                            <td><button class="btn">KUPI</button></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+
+        </header>
+
+        <!-- HEADER ENDS --> 
+        <main>
+            <section class="smallNav"> 
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <h2>Team Member</h2>
+                        </div>
+                        <div class="col-xs-12 text-center">
+
+                            <ul class="simplefilterFirst">     
+                                <li role="presentation" class="active"><a href="index.html">HOMEPAGE</a></li>
+                                <li role="presentation"><a href="#">PAGES</a></li>
+                                <li role="presentation"><a href="team_member.html">TEAM MEMBER</a></li>
+                            </ul> 
+
+                        </div>
+                    </div>  
+                </div> 
+            </section>
+
+            <section class="member">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="thumbnail info">
+                                <figure>
+                                    <img src="img/member.png" alt="" class="img-responsive"/>                               
+                                </figure>
+                                <div class="caption text-center">
+                                    <h2>CATHERINE<br>
+                                        <span>MANUEL</span>
+                                    </h2>                                                                               
+                                    <div>
+                                        <ul class="list-inline icons">  
+                                            <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+                                            <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                                            <li><a href="#"><span class="fa fa-google"></span></a></li>                                
+                                        </ul>
+                                    </div>
+                                </div>   
+                                <article>
+                                    <img src="img/location.png" alt=""/>
+                                    <p>1946 Brooke Street Houston, TX 77092</P>
+                                </article>
+                                <article>
+                                    <img src="img/clock2.png" alt=""/>
+                                    <p><span>Weekdays:</span> 9:00-18:00 <span> Saturday:</span> 1:00-15:00</P>
+                                </article> 
+                                <article>
+                                    <img src="img/letter.png" alt=""/>
+                                    <p>catherinemanuel@inbound.plus</P>
+                                </article>
+                                <article>
+                                    <img src="img/mobile.png" alt=""/>
+                                    <p>713-685-1069</P>
+                                </article>                                                   
+                            </div>                                                          
+                        </div> 
+
+
+                        <div class="col-xs-12 col-sm-6 right">
+                            <div class="thumbnail aboutMember">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur arcu eratimperdie. etporttitor at sem. Praesent sapien massa, convallis pellentesque nec, egestas non nisi. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet.   </p>
+                                <ul>
+                                    <li><span>Proin eget tortor risus.</span></li>
+                                    <li><span>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</span></li>
+                                    <li><span>Cras ultricies ligula sed magna dictum porta.</span></li>
+                                    <li><span>Cras ultricies ligula sed magna dictum porta.</span></li>
+                                    <li><span>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet</span> </li>
+                                </ul>      
+                                <p>Curabitur aliquet quam id dui posuere blandit. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Proin eget tortor risus. Nulla porttitor accumsan tincidunt. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla quis lorem ut libero alesuada feugiat. Pellentesque in ipsum id orci porta dapibus </p>                                
+                            </div>
+
+                            <div class=" data text-left">
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#biography" aria-controls="biography" role="tab" data-toggle="tab">Biography</a></li>
+                                    <li role="presentation"><a href="#skills" aria-controls="skills" role="tab" data-toggle="tab">Skills</a></li>
+                                    <li role="presentation"><a href="#sendMessage" aria-controls="sendMessage" role="tab" data-toggle="tab">Send Message</a></li>                                  
+                                </ul>
+
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="biography">
+                                        <h2>Biography</h2>
+                                        <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla uis lorem ut libero malesuada feugiat. Lorem ipsum dolor sit amet, consectetur ing elit. Proin eget tortor risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula Mauris blandit </p>
+                                        <h2>Professional Life</h2>
+                                        <p>Donec sollicitudin molestie malesuada. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet </p>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="skills">
+                                        <h2>Skills</h2>
+                                        <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla uis lorem ut libero malesuada feugiat. Lorem ipsum dolor sit amet, consectetur ing elit. Proin eget tortor risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula Mauris blandit </p>
+                                        <h2>Headline</h2>
+                                        <p>Donec sollicitudin molestie malesuada. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet </p>                                                           
+                                    </div>
+
+
+                                    <div role="tabpanel" class="tab-pane" id="sendMessage">
+                                        <h2>Send Message</h2>
+                                        <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla uis lorem ut libero malesuada feugiat. Lorem ipsum dolor sit amet, consectetur ing elit. Proin eget tortor risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula Mauris blandit </p>
+                                        <h2>Headline2</h2>
+                                        <p>Donec sollicitudin molestie malesuada. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet </p>                                   
+                                    </div>
+                                </div>                            
+                            </div>
+                            <div class="paragraph">
+                                <p>Donec sollicitudin molestie malesuada. Proin eget tortor risus. Lorem ipsum dolor sit met, consectetur adipiscing elit. Vivamus suscipit tortor eget felisttitor volutpat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
+                            </div>
+
+
+                            <div class="media quotation">
+                                <div class="media-left media-top">
+                                    <a href="#">
+                                        <span class="fa fa-quote-left"></span>
+                                    </a>
+                                </div>
+                                <div class="media-body">                               
+                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores.</p>
+                                </div>
+                            </div> 
+                            <div class="arrow-down"></div>
+                            <div class="commentTeam">
+                                <article class="col-xs-3">
+                                    <figure>
+                                        <img src="img/customer1.png" alt="" class="img-responsive"/>
+                                    </figure>
+                                </article>
+                                <article class="col-xs-9 name">
+                                    <h2>Francis M. Hartzell<br>
+                                        <span>BUSINESSMAN</span>                         
+                                    </h2> 
+                                </article>
+                            </div>
+                            <div class="paragraphSecond">
+                                <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Proin eget tortor risus. Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Pellentesque in ipsum id orci porta dapibus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. </p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </section>
+        </main>
+
+
+        <footer>
+            <div class="container text-center">
+                <div class="row">
+                    <article class="col-xs-12 col-md-offset-4 col-md-5 col-lg-offset-4 col-lg-5">                                
+                        <p><small>© 2016<span> MWTemplates</span></small>
+                            <a class="logo"><img src="img/logo.png" alt=""/></a>
+                            <small>All Rights Reserved</small>
+                        </p>                               
+                    </article>  
+                    
+                </div>
+                <p>Ovaj projekat je realizovan u okviru <a href="http://school.cubes.rs">CUBES SCHOOL</a>. Projekat Realizovali: FRONTEND: <a href="#">Stasa Joncic</a> BACKEND</p>
+            </div>
+        </footer>
+
+        <div class="modal fade" id="mod" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        Modal content
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+
+
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.js"><\/script>')</script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/jquery-3.0.0.min.js" type="text/javascript"></script>
+        <script src="js/main.js" type="text/javascript"></script>  
+        <script src="js/controls.js" type="text/javascript"></script>
+        <script src="js/jquery.js" type="text/javascript"></script>
+        <script src="js/validator.js" type="text/javascript"></script>
+        <script src="js/jquery.filterizr.js" type="text/javascript"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function (b, o, i, l, e, r) {
+                b.GoogleAnalyticsObject = l;
+                b[l] || (b[l] =
+                        function () {
+                            (b[l].q = b[l].q || []).push(arguments)
+                        });
+                b[l].l = +new Date;
+                e = o.createElement(i);
+                r = o.getElementsByTagName(i)[0];
+                e.src = '//www.google-analytics.com/analytics.js';
+                r.parentNode.insertBefore(e, r)
+            }(window, document, 'script', 'ga'));
+            ga('create', 'UA-XXXXX-X', 'auto');
+            ga('send', 'pageview');
+        </script>
+
+    </body>
+</html>

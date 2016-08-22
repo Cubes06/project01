@@ -1,30 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta charset="utf-8">
-		<?php echo $this->headTitle('PROJECT NAME')->setSeparator(' | ');?>
-		
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- @todo: fill with your company info or remove -->
-		<?php echo $this->headMeta();?>
-		<!-- General CSS -->
-		
-		<?php echo $this->headLink();?>
-		<!-- Theme  CSS -->
-		
-		<?php echo $this->headStyle();?>
-		
-		<?php echo $this->headScript();?>
-	</head>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('Eco Farm')->setSeparator(' | '); ?>
 
-	<!-- ======== @Region: body ======== -->
-	<body>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- @todo: fill with your company info or remove -->
+        <?php echo $this->headMeta(); ?>
+        
+        <!-- General CSS -->
+        
+        <link href='https://fonts.googleapis.com/css?family=Mr+De+Haviland&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Leckerli+One' rel='stylesheet' type='text/css'>        
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        
+        <?php echo $this->headLink(); ?>
+        
+        <!-- Theme  CSS -->
+        <link href="<?php echo $this->baseUrl('/front/css/bootstrap.css'); ?>" rel="stylesheet" >
+        <link href="<?php echo $this->baseUrl('/front/css/full-slider.css'); ?>" type="text/css" rel="stylesheet" >
+        <link href="<?php echo $this->baseUrl('/front/css/main.css'); ?>" type="text/css" rel="stylesheet" >       
+        <link href="<?php echo $this->baseUrl('/front/css/responsive.css'); ?>" type="text/css" rel="stylesheet" >
+        <link href="<?php echo $this->baseUrl('/front/css/datepicker.css'); ?>" rel="stylesheet" type="text/css"/>
+        
+        
+        <?php echo $this->headStyle(); ?>
 
-		<?php echo $this->layout()->content;?>
-		
-		<!--Scripts -->
-		<?php echo $this->inlineScript();?>
-	</body>
+        <?php echo $this->headScript(); ?>
+    </head>
+    
+    <style>
+        ul.nav li.dropdown:hover > ul.dropdown-menu {
+            display: block !important;    
+        }
+    </style>
+
+    <!-- ======== @Region: body ======== -->
+    <body>
+        <header>
+            <div class="container-fluid header-top">
+
+                <div class="row"> 
+                    <article class="col-xs-12 col-md-4"> 
+                        <ul class="list-inline social">  
+                            <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+                            <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                            <li><a href="#"><span class="fa fa-google"></span></a></li>
+                            <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
+                            <li><a href="#"><span class="fa fa-flickr"></span></a></li>
+                            <li><a href="#"><span class="fa fa-skype"></span></a></li>
+                        </ul>                       
+                    </article>
+                    <article class="col-xs-12 col-md-4 logo ">
+                        <a href="/front/index.html">
+                            <h2>Eco
+                                <img src="/front/img/logo.png" alt="" />
+                                <span>Farm</span>
+                            </h2>
+                        </a>
+                    </article>
+                    <div class="tel col-xs-12 col-md-4">
+                        <a href="/front/logIn.html">LOG IN</a>                        
+                        <a href="/front/registration.html">REGISTRATION</a>
+                        <a href="#" data-toggle="modal" data-target="#mod">LINK</a>
+                    </div>
+                </div>
+            </div>
+
+            
+            
+            
+            <nav class="navbar navbar-default secondNav">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><img src="/front/img/logo.png" alt=""/></a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
+                        
+                        <div class="collapse navbar-collapse">
+                            
+                        </div>
+                        <?php echo $this->topMenuHtml(); ?>
+                        
+                        <ul class="nav navbar-nav  shopingCart">
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <img src="/front/img/cart.png" alt=""/>
+                                </a>
+                            </li>
+                        </ul>
+                        <form class="navbar-form navbar-right" role="search">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search Keyword">
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><span><img src="/front/img/search.png" alt=""/></span></button>                                       
+                                    </span>
+                                </div>
+                            </div>
+                        </form>                                   
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+
+
+
+
+            <div id='shopingCartSmall'>
+                <table class="table">              
+                    <tbody>
+                        <tr id='hiddenRow'>
+                            <td>Proizvod</td>
+                            <td>Cena</td>
+                            <td>Kolicina</td>
+                            <td id='hideRow'>x</td>
+                        </tr>                                  
+                        <tr id='hiddenRow1'>
+                            <td>Proizvod</td>
+                            <td>Cena</td>
+                            <td>Kolicina</td>
+                            <td id='hideRow1'>x</td>
+                        </tr>                                   
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>TOTAL: 5670 din</td>
+                            <td></td>
+                            <td></td>
+                            <td><button class="btn">KUPI</button></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+
+        </header>
+
+
+        <?php echo $this->layout()->content; ?>
+
+
+        <footer>
+            <div class="container text-center">
+                <div class="row">
+                    <article class="col-xs-12 col-md-offset-4 col-md-5 col-lg-offset-4 col-lg-5">                                
+                        <p><small>© 2016<span> MWTemplates</span></small>
+                            <a class="logo"><img src="/front/img/logo.png" alt=""/></a>
+                            <small>All Rights Reserved</small>
+                        </p>                               
+                    </article>  
+
+                </div>
+                <p>Ovaj projekat je realizovan u okviru <a href="http://school.cubes.rs">CUBES SCHOOL</a>. Projekat Realizovali: FRONTEND: <a href="#">Stasa Joncic</a> BACKEND</p>
+            </div>
+        </footer>
+
+
+        <!--Scripts -->
+        <?php echo $this->inlineScript(); ?>
+        
+        <script src="front/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
+        <script>window.jQuery || document.write('<script src="front/js/vendor/jquery-1.11.2.js"><\/script>')</script>
+        <script src="front/js/vendor/bootstrap.min.js"></script>
+        <script src="front/js/jquery-3.0.0.min.js" type="text/javascript"></script>
+        <script src="front/js/main.js" type="text/javascript"></script>     
+        <script src="front/js/controls.js" type="text/javascript"></script>
+        <script src="front/js/jquery.js" type="text/javascript"></script>
+        <script src="front/js/validator.js" type="text/javascript"></script>
+        <script src="front/js/jquery.filterizr.js" type="text/javascript"></script>
+        
+        
+        
+    </body>
 
 </html>

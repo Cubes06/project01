@@ -29,5 +29,3 @@ $application = new Zend_Application(
 $application->bootstrap()
             ->run();
 
-
-echo 'Hello new world';

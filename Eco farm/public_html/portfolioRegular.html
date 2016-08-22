@@ -1,0 +1,346 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head> 
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link href="css/full-slider.css" rel="stylesheet" type="text/css"/>
+        <link href="css/main.css" rel="stylesheet" type="text/css"/> 
+
+        <link href='https://fonts.googleapis.com/css?family=Mr+De+Haviland&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Leckerli+One' rel='stylesheet' type='text/css'>        
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+
+        <link rel="stylesheet" href="css/responsive.css">
+        <link href="css/datepicker.css" rel="stylesheet" type="text/css"/>
+      
+    </head>
+    <body>  
+        <!-- HEADER START -->
+
+        <header>
+            <div class="container-fluid header-top">
+
+                <div class="row"> 
+                    <article class="col-xs-12 col-md-4"> 
+                        <ul class="list-inline social">  
+                            <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+                            <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                            <li><a href="#"><span class="fa fa-google"></span></a></li>
+                            <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
+                            <li><a href="#"><span class="fa fa-flickr"></span></a></li>
+                            <li><a href="#"><span class="fa fa-skype"></span></a></li>
+                        </ul>                       
+                    </article>
+                    <article class="col-xs-12 col-md-4 logo ">
+                        <a href="index.html">
+                            <h2>Eco
+                                <img src="img/logo.png" alt="" />
+                                <span>Farm</span>
+                            </h2>
+                        </a>
+                    </article>
+                    <div class="tel col-xs-12 col-md-4">
+                        <a href="logIn.html">LOG IN</a>                        
+                        <a href="registration.html">REGISTRATION</a>
+                        <a href="#" data-toggle="modal" data-target="#mod">LINK</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <nav class="navbar navbar-default secondNav">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><img src="img/logo.png" alt=""/></a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav mainMenu">
+                            <li><a href="index.html">HOME</a></li>
+                            <li><a href="#">PAGES</a></li>
+                            <li><a href="#">PRODUCTS</a></li>
+                            <li><a href="portfolioRegular.html">PORTFOLIO</a></li>                                       
+                            <li><a href="blog.html">BLOG</a></li>
+                            <li><a href="contacts.html">CONTACT</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav  shopingCart">
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <img src="img/cart.png" alt=""/>
+                                </a>
+                            </li>
+                        </ul>
+                        <form class="navbar-form navbar-right" role="search">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search Keyword">
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><span><img src="img/search.png" alt=""/></span></button>                                       
+                                    </span>
+                                </div>
+                            </div>
+                        </form>                                   
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+
+
+
+
+            <div id='shopingCartSmall'>
+                <table class="table">              
+                    <tbody>
+                        <tr id='hiddenRow'>
+                            <td>Proizvod</td>
+                            <td>Cena</td>
+                            <td>Kolicina</td>
+                            <td id='hideRow'>x</td>
+                        </tr>                                  
+                        <tr id='hiddenRow1'>
+                            <td>Proizvod</td>
+                            <td>Cena</td>
+                            <td>Kolicina</td>
+                            <td id='hideRow1'>x</td>
+                        </tr>                                   
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>TOTAL: 5670 din</td>
+                            <td></td>
+                            <td></td>
+                            <td><button class="btn">KUPI</button></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+
+        </header>
+
+        <!-- HEADER ENDS --> 
+        <main>
+        <section class="smallNav"> 
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <h2>Portfolio Regular</h2>
+                    </div>
+                    <div class="col-xs-12 text-center">
+
+                        <ul class="simplefilterFirst">     
+                            <li role="presentation" class="active"><a href="index.html">HOMEPAGE</a></li>
+                            <li role="presentation"><a href="portfolioRegular.html">PORTFOLIO</a></li>
+                            <li role="presentation"><a href="#">REGULAR</a></li>
+                        </ul> 
+
+                    </div>
+                </div>  
+            </div> 
+        </section>
+
+
+
+
+
+        <div class="container">
+            <!-- Filter Controls - Simple Mode -->
+            <div class="row text-center">  
+                <!-- A basic setup of simple mode filter controls, all you have to do is use data-filter="all"
+                for an unfiltered gallery and then the values of your categories to filter between them -->
+                <ul class="simplefilter">
+
+                    <li class="active" data-filter="all">All</li>
+                    <li data-filter="1">FRUITS</li>
+                    <li data-filter="2">VEGETABLES</li>
+                    <li data-filter="3">BERRIES</li>
+                    <li data-filter="4">FOOD</li>
+                    <li data-filter="5">PLANTING</li> 
+                    <li data-filter="2">ORGANIC</li>
+                    <li data-filter="4">SELECTING</li>   
+                </ul>
+            </div>
+
+
+
+            <div class="row">
+                <!-- This is the set up of a basic gallery, your items must have the categories they belong to in a data-category
+                attribute, which starts from the value 1 and goes up from there -->
+                <div class="filtr-container">
+                    <div class="col-xs-6 col-sm-4 col-md-4 filtr-item" data-category="1, 5" data-sort="FRUITS">
+                        <a href="#"><img class="img-responsive" src="img/portfolio1.png" alt="sample image"></a>
+
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4 filtr-item" data-category="2, 5" data-sort="VEGETABLES">
+                        <a href="#"><img class="img-responsive" src="img/portfolio2.png" alt="sample image"></a>
+
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4 filtr-item" data-category="1, 4" data-sort="BERRIES">
+                        <a href="#"><img class="img-responsive" src="img/portfolio3.png" alt="sample image"></a>
+
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4 filtr-item" data-category="3" data-sort="FOOD">
+                        <a href="#"><img class="img-responsive" src="img/portfolio4.png" alt="sample image"></a>
+
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4 filtr-item" data-category="3, 4" data-sort="PLANTING">
+                        <a href="#"><img class="img-responsive" src="img/portfolio5.png" alt="sample image"></a>
+
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4 filtr-item" data-category="2, 4" data-sort="ORGANIC">
+                        <a href="#"><img class="img-responsive" src="img/portfolio6.png" alt="sample image"></a>
+
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4 filtr-item" data-category="1, 5" data-sort="SELECTING">
+                        <a href="#"><img class="img-responsive" src="img/portfolio7.png" alt="sample image"></a>
+
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4 filtr-item" data-category="2, 4" data-sort="VEGETABLES">
+                        <a href="#"><img class="img-responsive" src="img/portfolio8.png" alt="sample image"></a>
+
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4 filtr-item" data-category="3, 2" data-sort="OFRGANIC">
+                        <a href="#"><img class="img-responsive" src="img/portfolio9.png" alt="sample image"></a>
+
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4 filtr-item" data-category="4, 5" data-sort="FOOD">
+                        <a href="#"><img class="img-responsive" src="img/portfolio10.png" alt="sample image"></a>
+
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4 filtr-item" data-category="1" data-sort="BERRIES">
+                        <a href="#"><img class="img-responsive" src="img/portfolio11.png" alt="sample image"></a>
+
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4 filtr-item" data-category="3" data-sort="VEGETABLES">
+                        <a href="#"><img class="img-responsive" src="img/portfolio12.png" alt="sample image"></a>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row text-center">
+                <nav aria-label="...">
+                    <ul class="pagination">
+                        <li><a href="#" aria-label="Previous"><span aria-hidden="true"><</span></a></li>
+                        <li><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#" aria-label="Next"><span aria-hidden="true">></span></a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </main>
+
+        <footer>
+            <div class="container text-center">
+                <div class="row">
+                    <article class="col-xs-12 col-md-offset-4 col-md-5 col-lg-offset-4 col-lg-5">                                
+                        <p><small>© 2016<span> MWTemplates</span></small>
+                            <a class="logo"><img src="img/logo.png" alt=""/></a>
+                            <small>All Rights Reserved</small>
+                        </p>                               
+                    </article>  
+                    
+                </div>
+                <p>Ovaj projekat je realizovan u okviru <a href="http://school.cubes.rs">CUBES SCHOOL</a>. Projekat Realizovali: FRONTEND: <a href="#">Stasa Joncic</a> BACKEND</p>
+            </div>
+        </footer>
+        
+          <div class="modal fade" id="mod" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        Modal content
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.js"><\/script>')</script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/jquery-3.0.0.min.js" type="text/javascript"></script>
+        <script src="js/main.js" type="text/javascript"></script>
+        <script src="js/controls.js" type="text/javascript"></script>
+        <script src="js/jquery.js" type="text/javascript"></script>
+        <script src="js/validator.js" type="text/javascript"></script>
+        <script src="js/jquery.filterizr.js" type="text/javascript"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function (b, o, i, l, e, r) {
+                b.GoogleAnalyticsObject = l;
+                b[l] || (b[l] =
+                        function () {
+                            (b[l].q = b[l].q || []).push(arguments)
+                        });
+                b[l].l = +new Date;
+                e = o.createElement(i);
+                r = o.getElementsByTagName(i)[0];
+                e.src = '//www.google-analytics.com/analytics.js';
+                r.parentNode.insertBefore(e, r)
+            }(window, document, 'script', 'ga'));
+            ga('create', 'UA-XXXXX-X', 'auto');
+            ga('send', 'pageview');
+        </script>
+
+    </body>
+</html>

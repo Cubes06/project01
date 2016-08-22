@@ -1,0 +1,413 @@
+
+@media (min-width: 768px) {
+.navbar-nav {
+  display: inline-block;
+    float: none;
+}
+.navbar-brand{
+    display: none;
+}
+.logo{
+    display: inline-block;
+}
+.mainMenu li a{
+    padding: 15px 10px;
+}
+    .data .nav-tabs > li > a {
+
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+.navbar-right{
+    display:block;
+}
+.shopingCart{
+    float: left !important;
+}
+    .cart img {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .performance img{
+        height: auto;
+        width: 260px;
+    }
+.performance{
+    margin-top: -100px;
+    margin-bottom: 50px;
+}
+
+footer .logo img{
+    width: auto;
+    height: auto;
+}
+    .info{
+        border-color: #e7e7e7;
+        max-width:none; 
+    } 
+
+    .nav-tabs {
+        width: 100%;
+        margin-left: 0px;
+        padding-left: 8%
+    }
+    .aboutText {
+        margin-top: 10px;
+        padding-right: 50px;
+    }
+    .aboutText p{
+        text-align: left;
+    }
+    .about h2{
+
+        font-size: 50px;    
+        text-align: left;
+    }
+.aboutMember{
+   
+    margin-top: 00px;
+    
+}
+    .about h3{
+        font-size: 20px;
+        margin-top: -10px;
+        text-align: left;
+    }
+    .description{
+        margin-bottom: 15px;
+    } 
+    .arrow-down {
+        margin-left: 25px;
+    }
+
+
+
+
+    .latestNews div .thumbnail {
+        max-width: 100%;
+        max-height: 100%;  
+        float: left;  
+        padding: 0px 0px;
+        position: relative;
+        width: 100%;
+    }
+    .carousel-caption{
+        padding-bottom: 20px;
+    } 
+    .carousel-caption h2{
+        margin-top: 30px;
+        font-size: 30px;
+    }
+    .third   .first{
+        margin-top: -55px;
+    } 
+
+    .third   .second{
+        margin-top: -55px;
+    }
+    .third .large {
+        margin-top: -330px;
+    }
+    .latestNews figure{
+        height: 146px;
+    }
+    .latestNews .large figure {
+        height: 312px;
+    }
+    
+    
+    .category{  
+        height: 45px;
+        width: 200px;
+        margin-left: 20px;
+        padding-left: 10px;
+
+    }
+    .months{  
+        height: 45px;
+        width: 200px;
+        margin-left: 20px;
+        padding-left: 10px;      
+        margin-bottom: 0px;
+    }
+    .banner{
+    margin-top: -15px;
+}
+
+.gallery{
+    margin-top: 40px;
+}
+.gallery .nav-tabs{
+    padding: 20px 0;
+}
+    
+}
+
+
+
+
+@media (min-width: 992px) {
+
+    .data .nav-tabs > li > a {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .header-top{
+        padding-top: 10px;
+    }
+    .mainMenu li a{
+    font-size: 18px;
+    padding: 15px 20px;
+}
+
+    .tel{
+        text-align: center;
+        margin-top: 20px;    
+        margin-bottom: 0px;
+    }
+    .header-top{
+    padding-bottom: 0px;
+}
+    .social{ 
+        float:left;
+    }
+    .tel {
+        text-align: end;
+    }
+
+    .aboutText {
+        margin-top: 60px;
+    }
+
+    .cart img {
+        margin-left:  0px;
+        margin-right: 0px;
+        float: left;
+    }
+
+   
+
+
+    .performance img{
+        height: auto;
+        width: 260px;
+    }
+   
+
+
+    .aboutText {
+        margin-top: 20px;
+    }
+    .about h2{
+        font-size: 70px;    
+    }
+
+    .about h3{
+        font-size: 20px;
+        margin-top: -20px;
+    }
+
+    .arrow-down {
+        margin-left: 35px;
+    }
+    .description{
+        margin-bottom: 15px;
+    } 
+
+    .info{
+        border-color: #e7e7e7;
+        max-width: 450px;
+    }
+    .commentTeam{
+        margin-left: 40px;
+    }
+    .latestNews div .thumbnail {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .carousel-caption h2{
+        font-family: 'Roboto';
+        color: white;
+        font-size: 30px;
+        font-weight: 600;
+        margin-top: 30px;
+        padding-bottom: 60px;
+    }
+    .iconsTouch figure img{
+        padding-right: 5px;
+    } 
+    .flickr figure img{
+        padding-right: 5px;
+    } 
+
+    .third   .first{
+        margin-top: -25px;
+    } 
+
+    .third   .second{
+        margin-top: -25px;
+    } 
+
+    .third .large {
+        margin-top: -250px;
+    }
+
+    .latestNews figure{
+        height: 195px;
+    }
+
+    .latestNews .large figure {
+        height: 410px;
+    }
+
+    .category{  
+
+        margin-left: 10px;
+        padding-left: 10px; 
+        height: 45px;
+        width: 290px;
+    }
+    .months{  
+        margin-left: 10px;
+        padding-left: 10px;  
+    }
+ .big{
+margin-bottom: 100px;    
+}
+
+
+
+}
+
+
+
+
+
+
+@media (min-width: 1200px) {
+
+    .navbar-default{
+        margin-left: 0px;
+        margin-right: 0x;
+    }
+    .social{ 
+        margin-left: 0px; 
+    }
+    .cart img {
+        margin-left: 0px;
+    } 
+
+    #myCarousel{
+        margin-left: 0px;
+        margin-right:0px;
+    }
+
+
+    .performance{
+        margin-top: -100px; 
+    }
+
+    .arrow-down {
+        margin-left: 50px;
+    }
+
+    .gallery{
+        margin-left: 0px;
+        margin-right: 0px; 
+    }
+    .nav-tabs {
+        width: 100%;
+        margin-left: 0px;
+        padding-left: 20%
+    }
+
+    .about {
+        margin-left: 0px; 
+        margin-right: 0px;
+    }
+
+    .aboutText {
+        margin-top: 30px;
+    }
+
+    .commentTeam{
+        margin-left: 10px;
+    }
+    .name h2{
+
+        margin-left: -30px;
+    }
+    .carousel-caption{
+        margin-bottom: 40px;
+    }
+    .carousel-caption h2{
+        font-family: 'Roboto';
+        color: white;
+        font-size: 50px;
+        font-weight: 600;
+        margin-top: 30px;
+        padding-bottom: 60px;
+    }
+    .iconsTouch figure img{
+        padding-right: 0px;
+    } 
+    .flickr figure img{
+        padding-right: 0px;
+    } 
+
+    .third   .first{
+        margin-top: -15px;
+    } 
+
+    .third   .second{
+        margin-top: -15px;
+    } 
+
+    .third   .large{
+        margin-top: -225px;
+    }
+
+
+    .latestNews figure{
+        height: 239px;
+
+    }
+
+    .latestNews .large figure {
+        height: 498px;
+    }
+
+
+
+    .category{  
+        height: 45px;
+        width: 290px;
+        margin-left: 35px;
+        padding-left: 10px;
+      
+    }
+    .months{  
+        height: 45px;
+        width: 290px;
+        margin-left: 35px;
+        padding-left: 10px;      
+     
+    }
+    
+
+.map iframe{
+    height: 450px;
+}
+
+
+
+
+}
+
+
+
+
+
+
+
+
