@@ -1,0 +1,151 @@
+<?php
+    $portfolio = $this->portfolio;
+    $this->headTitle('Portfolio ' . $portfolio["title"]);
+?>
+
+
+
+
+    <main>
+        <section class="smallNav"> 
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <h2>Team Member</h2>
+                    </div>
+                    <div class="col-xs-12 text-center">
+
+                        <ul class="simplefilterFirst">     
+                            <li role="presentation" class="active"><a href="index.html">HOMEPAGE</a></li>
+                            <li role="presentation"><a href="#">PAGES</a></li>
+                            <li role="presentation"><a href="team_member.html">TEAM MEMBER</a></li>
+                        </ul> 
+
+                    </div>
+                </div>  
+            </div> 
+        </section>
+
+        <section class="member">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="thumbnail info">
+                            <figure>
+                                <img src="<?php echo $this->portfolioImgUrl($portfolio); ?>" alt="<?php echo $this->escape($portfolio["title"]); ?>" class="img-responsive"/>                               
+                            </figure>
+                            <div class="caption text-center">
+                                <h2><?php echo $this->escape($portfolio["title"]); ?><br>
+                                    <span><?php echo $this->escape($portfolio["description"]); ?></span>
+                                </h2>                                                                               
+                                <div>
+                                    <ul class="list-inline icons">  
+                                        <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+                                        <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                                        <li><a href="#"><span class="fa fa-google"></span></a></li>                                
+                                    </ul>
+                                </div>
+                            </div>   
+                            <article>
+                                <img src="/front/img/location.png" alt=""/>
+                                <p>1946 Brooke Street Houston, TX 77092</P>
+                            </article>
+                            <article>
+                                <img src="/front/img/clock2.png" alt=""/>
+                                <p><span>Weekdays:</span> 9:00-18:00 <span> Saturday:</span> 1:00-15:00</P>
+                            </article> 
+                            <article>
+                                <img src="/front/img/letter.png" alt=""/>
+                                <p>catherinemanuel@inbound.plus</P>
+                            </article>
+                            <article>
+                                <img src="/front/img/mobile.png" alt=""/>
+                                <p>713-685-1069</P>
+                            </article>                                                   
+                        </div>                                                          
+                    </div> 
+
+
+                    <div class="col-xs-12 col-sm-6 right">
+                        <div class="thumbnail aboutMember">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur arcu eratimperdie. etporttitor at sem. Praesent sapien massa, convallis pellentesque nec, egestas non nisi. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet.   </p>
+                            <ul>
+                                <li><span>Proin eget tortor risus.</span></li>
+                                <li><span>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</span></li>
+                                <li><span>Cras ultricies ligula sed magna dictum porta.</span></li>
+                                <li><span>Cras ultricies ligula sed magna dictum porta.</span></li>
+                                <li><span>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet</span> </li>
+                            </ul>      
+                            <p>Curabitur aliquet quam id dui posuere blandit. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Proin eget tortor risus. Nulla porttitor accumsan tincidunt. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla quis lorem ut libero alesuada feugiat. Pellentesque in ipsum id orci porta dapibus </p>                                
+                        </div>
+
+                        <div class=" data text-left">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#biography" aria-controls="biography" role="tab" data-toggle="tab">Biography</a></li>
+                                <li role="presentation"><a href="#skills" aria-controls="skills" role="tab" data-toggle="tab">Skills</a></li>
+                                <li role="presentation"><a href="#sendMessage" aria-controls="sendMessage" role="tab" data-toggle="tab">Send Message</a></li>                                  
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="biography">
+                                    <h2>Biography</h2>
+                                    <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla uis lorem ut libero malesuada feugiat. Lorem ipsum dolor sit amet, consectetur ing elit. Proin eget tortor risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula Mauris blandit </p>
+                                    <h2>Professional Life</h2>
+                                    <p>Donec sollicitudin molestie malesuada. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet </p>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="skills">
+                                    <h2>Skills</h2>
+                                    <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla uis lorem ut libero malesuada feugiat. Lorem ipsum dolor sit amet, consectetur ing elit. Proin eget tortor risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula Mauris blandit </p>
+                                    <h2>Headline</h2>
+                                    <p>Donec sollicitudin molestie malesuada. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet </p>                                                           
+                                </div>
+
+
+                                <div role="tabpanel" class="tab-pane" id="sendMessage">
+                                    <h2>Send Message</h2>
+                                    <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla uis lorem ut libero malesuada feugiat. Lorem ipsum dolor sit amet, consectetur ing elit. Proin eget tortor risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula Mauris blandit </p>
+                                    <h2>Headline2</h2>
+                                    <p>Donec sollicitudin molestie malesuada. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet </p>                                   
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="paragraph">
+                            <p>Donec sollicitudin molestie malesuada. Proin eget tortor risus. Lorem ipsum dolor sit met, consectetur adipiscing elit. Vivamus suscipit tortor eget felisttitor volutpat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
+                        </div>
+
+
+                        <div class="media quotation">
+                            <div class="media-left media-top">
+                                <a href="#">
+                                    <span class="fa fa-quote-left"></span>
+                                </a>
+                            </div>
+                            <div class="media-body">                               
+                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores.</p>
+                            </div>
+                        </div> 
+                        <div class="arrow-down"></div>
+                        <div class="commentTeam">
+                            <article class="col-xs-3">
+                                <figure>
+                                    <img src="/front/img/customer1.png" alt="" class="img-responsive"/>
+                                </figure>
+                            </article>
+                            <article class="col-xs-9 name">
+                                <h2>Francis M. Hartzell<br>
+                                    <span>BUSINESSMAN</span>                         
+                                </h2> 
+                            </article>
+                        </div>
+                        <div class="paragraphSecond">
+                            <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Proin eget tortor risus. Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Pellentesque in ipsum id orci porta dapibus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. </p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+    </main>

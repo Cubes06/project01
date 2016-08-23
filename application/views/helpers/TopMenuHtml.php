@@ -47,6 +47,7 @@
                                 <ul class="dropdown-menu" aria-labelledby="menu-item-<?php echo $sitemapPage['id']; ?>" role="menu">
                                     <?php foreach ($secondLevelSitemapPages as $secondLevelSitemapPage) { ?>
                                         <li role="menuitem"><a href="<?php echo $this->view->sitemapPageUrl($secondLevelSitemapPage['id']); ?>" tabindex="-1"><?php echo $this->view->escape($secondLevelSitemapPage['short_title']); ?></a></li>
+                                        
                                     <?php } ?>
                                 </ul>
 

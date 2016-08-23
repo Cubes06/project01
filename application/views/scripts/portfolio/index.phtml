@@ -1,0 +1,61 @@
+<?php
+    $sitemapPage = $this->sitemapPage;
+
+    $this->headTitle($sitemapPage['title']);
+    $this->headMeta()->appendName('description', $sitemapPage['description']);
+?>
+
+
+    <div id="content">
+        
+        <section class="smallNav"> 
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <h2>Portfolio Regular</h2>
+                    </div>
+                    <div class="col-xs-12 text-center">
+
+                        <ul class="simplefilterFirst">     
+                            <li role="presentation" class="active"><a href="index.html">HOMEPAGE</a></li>
+                            <li role="presentation"><a href="portfolioRegular.html">PORTFOLIO</a></li>
+                            <li role="presentation"><a href="#">REGULAR</a></li>
+                        </ul> 
+
+                    </div>
+                </div>  
+            </div> 
+        </section>
+        
+        
+        <div class="container">
+            <!-- Filter Controls - Simple Mode -->
+            <div class="row text-center">  
+                <!-- A basic setup of simple mode filter controls, all you have to do is use data-filter="all"
+                for an unfiltered gallery and then the values of your categories to filter between them -->
+                <ul class="simplefilter">
+                    <li class="active" data-filter="all">All</li>
+                    <li data-filter="1">FRUITS</li>
+                    <li data-filter="2">VEGETABLES</li>
+                    <li data-filter="3">BERRIES</li>
+                    <li data-filter="4">FOOD</li>
+                    <li data-filter="5">PLANTING</li> 
+                    <li data-filter="2">ORGANIC</li>
+                    <li data-filter="4">SELECTING</li>   
+                </ul>
+            </div>
+            
+            
+            <!-- This is the set up of a basic gallery, your items must have the categories they belong to in a data-category
+                attribute, which starts from the value 1 and goes up from there -->
+            <div class="filtr-container">
+                <?php foreach ($this->portfolios as $portfolio) { 
+                    $portfolioImgUrl = $this->portfolioImgUrl($portfolio); ?>
+                    <div class="col-xs-6 col-sm-4 col-md-4 filtr-item" data-category="<?php echo $this->escape($portfolio['data_categories']); ?>">
+                        <a href="<?php echo $this->portfolioUrl($portfolio); ?>"><img class="img-responsive" src="<?php echo $portfolioImgUrl; ?>" alt="<?php echo $this->escape($portfolio["title"]); ?>"></a>
+                    </div>
+                <?php } ?>               
+            </div>
+        </div>
+        
+    </div>

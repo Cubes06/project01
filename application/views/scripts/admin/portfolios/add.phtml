@@ -1,0 +1,204 @@
+<?php
+    $this->headTitle('Portfolios - New Portfolio');
+    
+    $form = $this->form;
+    $form->setElementDecorators(array('ViewHelper'));
+?>
+
+<div class="page-header">
+    <h1>Portfolios <small>New Portfolio</small></h1>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <?php echo $this->systemMessagesHtml($this->systemMessages); ?>
+    </div>
+</div>
+
+
+
+<div class="row">
+    
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading text-right">
+                <div class="btn-group" role="group" aria-label="...">
+                    <a 
+                        href=" <?php echo $this->url(array('controller' => 'admin_portfolios', 'action' => 'index'), 'default', true); ?>" type="button" 
+                        class="btn btn-default"
+                        ><i class="glyphicon glyphicon-chevron-left"></i> Back to all portfolios
+                    </a>
+                </div>
+            </div>
+            <div class="panel-body">
+                
+                
+                <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
+                    <input type="hidden" name="task" value="save">
+                    
+                    <fieldset>
+                        <!-- Form Name -->
+                        <legend>New Portfolio</legend>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="first_name">First Name</label>  
+                            <div class="col-md-4">
+                                <?php
+                                    echo $form->getElement('title')->setAttribs(array(
+                                        'class' => 'form-control input-md',
+                                        'placeholder' => 'Enter portfolio\'s title',
+                                        'id' => 'title',
+                                        'required' => 'required'
+                                    ));
+                                ?>
+                                <span class="help-block">min 3, max 255 characters</span>  
+                            </div>
+                            <div class="col-md-4">
+                                <?php if ($form->getElement('title')->hasErrors()) { ?>
+                                    <div class="has-error">
+                                        <?php foreach ($form->getElement('title')->getMessages() as $message) { ?>
+                                            <p class="help-block"><?php echo $this->escape($message); ?></p>
+                                        <?php } ?>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="data_categories">Data Categories</label>  
+                            <div class="col-md-4">
+                                <?php
+                                    echo $form->getElement('data_categories')->setAttribs(array(
+                                        'class' => 'form-control input-md',
+                                        'placeholder' => 'Enter portfolio\'s data-categories',
+                                        'id' => 'data_categories',
+                                        'required' => 'required'
+                                    ));
+                                ?>
+                                <span class="help-block">min 3, max 255 characters</span>  
+                            </div>
+                            <div class="col-md-4">
+                                <?php if ($form->getElement('data_categories')->hasErrors()) { ?>
+                                    <div class="has-error">
+                                        <?php foreach ($form->getElement('data_categories')->getMessages() as $message) { ?>
+                                            <p class="help-block"><?php echo $this->escape($message); ?></p>
+                                        <?php } ?>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="characteristic1">characteristic1</label>  
+                            <div class="col-md-4">
+                                <?php
+                                    echo $form->getElement('characteristic1')->setAttribs(array(
+                                        'class' => 'form-control input-md',
+                                        'placeholder' => 'Enter portfolio\'s characteristic1',
+                                        'id' => 'characteristic1',
+                                        'required' => 'required'
+                                    ));
+                                ?>
+                               
+                                <span class="help-block"></span>  
+                            </div>
+                            <div class="col-md-4">
+                                <?php if ($form->getElement('characteristic1')->hasErrors()) { ?>
+                                    <div class="has-error">
+                                        <?php foreach ($form->getElement('characteristic1')->getMessages() as $message) { ?>
+                                            <p class="help-block"><?php echo $this->escape($message); ?></p>
+                                        <?php } ?>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="characteristic2">characteristic2</label>  
+                            <div class="col-md-4">
+                                <?php
+                                    echo $form->getElement('characteristic2')->setAttribs(array(
+                                        'class' => 'form-control  input-md',
+                                        'id' => 'characteristic2'
+                                    ));
+                                ?>
+                                
+                                <span class="help-block">characteristic2</span>  
+                            </div>
+                            <div class="col-md-4">
+                                <?php if ($form->getElement('characteristic2')->hasErrors()) { ?>
+                                    <div class="has-error">
+                                        <?php foreach ($form->getElement('characteristic2')->getMessages() as $message) { ?>
+                                            <p class="help-block"><?php echo $this->escape($message); ?></p>
+                                        <?php } ?>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+
+                        <!-- Textarea -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="description">Resume</label>
+                            <div class="col-md-4"> 
+                                <?php
+                                    echo $form->getElement('description')->setAttribs(array(
+                                        'class' => 'form-control',
+                                        'id' => 'description',
+                                        'rows' => '12'
+                                    ));
+                                ?>
+                                
+                            </div>
+                            <div class="col-md-4">
+                                <?php if ($form->getElement('description')->hasErrors()) { ?>
+                                    <div class="has-error">
+                                        <?php foreach ($form->getElement('description')->getMessages() as $message) { ?>
+                                            <p class="help-block"><?php echo $this->escape($message); ?></p>
+                                        <?php } ?>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        
+                         <!-- Image -->
+                        
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="portfolio_photo">Photo portfolio</label>
+                            <div class="col-md-4"> 
+                                
+                                <input type="file" name="portfolio_photo" id="portfolio_photo" class="form-control  input-md">
+                                
+                            </div>
+                            <div class="col-md-4">
+                                 <?php if ($form->getElement('portfolio_photo')->hasErrors()) { ?>
+                                    <div class="has-error">
+                                        <?php foreach ($form->getElement('portfolio_photo')->getMessages() as $message) { ?>
+                                            <p class="help-block"><?php echo $this->escape($message); ?></p>
+                                        <?php } ?>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+
+                        <!-- Button (Double) -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="new_portfolio_cancel"></label>
+                            <div class="col-md-4 text-right">
+                                <a href=" <?php echo $this->url(array('controller' => 'admin_portfolios', 'action' => 'index'), 'default', 'true'); ?> " id="new_portfolio_cancel" name="new_portfolio_cancel" class="btn btn-default" >Cancel</a>
+                                <button type="submit" id="new_portfolio_submit" name="new_portfolio_submit" class="btn btn-success">Save</button>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    
+    
+</div>

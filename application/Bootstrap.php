@@ -26,6 +26,12 @@
                         
                     )
                 ),
+                'PortfolioPage' => array(
+                    'title' => 'Portfolio Page',
+                    'subtypes' => array(
+                        
+                    )
+                ),
             );
 
 
@@ -33,6 +39,7 @@
                 'StaticPage' => 0,
                 'PhotoGalleriesPage' => 1,
                 'ContactPage' => 1,
+                'PortfolioPage' => 1
             );
 
 
@@ -99,6 +106,34 @@
                         )
                     );
                 }
+                
+                if ($sitemapPageMap['type'] == 'PortfolioPage') {
+                    $router->addRoute( 
+                        'static-page-route-' . $sitemapPageId, 
+                        new Zend_Controller_Router_Route_Static (
+                                $sitemapPageMap['url'],
+                                array(
+                                    'controller' => 'portfolio',
+                                    'action' => 'index',
+                                    'sitemap_page_id' => $sitemapPageId
+                                )
+                        )
+                    );
+                    
+                    $router->addRoute(
+                        'portfolio-route', 
+                        new Zend_Controller_Router_Route (
+                                $sitemapPageMap['url'] . '/product/:id/:portfolio_slug',
+                                array(
+                                    'controller' => 'portfolio',
+                                    'action' => 'product',
+                                    'portfolio_slug' => ''
+                                )
+                        )
+                    ); 
+                                
+                }
+                
                 
             }//foreach
             
