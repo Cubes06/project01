@@ -166,14 +166,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="description">multiple</label>
                                 <div class="col-md-4"> 
-                                    <select id="example-getting-started" multiple="multiple">
-                                        <option value="cheese">Cheese</option>
-                                        <option value="tomatoes">Tomatoes</option>
-                                        <option value="mozarella">Mozzarella</option>
-                                        <option value="mushrooms">Mushrooms</option>
-                                        <option value="pepperoni">Pepperoni</option>
-                                        <option value="onions">Onions</option>
-                                    </select>
+                                    
                                       
                                 </div>
                                 <div class="col-md-4">
@@ -227,37 +220,25 @@
             </div>
         </div>
     </div>
-<!--                                    <select id="insightList" multiple="multiple">
-                                        <optgroup label="Group 1">
-                                          <option value="1-1">Option 1.1</option>
-                                          <option value="2-1">Option 2.1</option>
-                                          <option value="2-2">Option 2.2</option>
-                                          <option value="2-3">Option 2.3</option>
-                                        </optgroup>
-                                      </select>-->
-
-
+                                  
+<select id="example-getting-started" multiple="multiple">
+                                        <option value="cheese">Cheese</option>
+                                        <option value="tomatoes">Tomatoes</option>
+                                        <option value="mozarella">Mozzarella</option>
+                                        <option value="mushrooms">Mushrooms</option>
+                                        <option value="pepperoni">Pepperoni</option>
+                                        <option value="onions">Onions</option>
+                                    </select>
 
 <?php
-    $this->headLink()->appendStylesheet('http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css');
-    $this->headLink()->appendStylesheet('http://davidstutz.github.io/bootstrap-multiselect/dist/css/bootstrap-multiselect.css');
-    
-    $this->inlineScript()->appendFile('http://code.jquery.com/jquery.min.js');
-    $this->inlineScript()->appendFile('http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js');
-    $this->inlineScript()->appendFile('http://davidstutz.github.io/bootstrap-multiselect/dist/js/bootstrap-multiselect.js');
+    $this->headLink()->appendStylesheet($this->baseUrl('/front/css/bootstrap-multiselect.css'));
+    $this->inlineScript()->appendFile($this->baseUrl('/front/js/bootstrap-multiselect.js'));
 ?>
 
 
+<!-- Initialize the plugin: -->
 <script type="text/javascript">
     $(document).ready(function() {
         $('#example-getting-started').multiselect();
     });
 </script>
-
-<!--<script id="example">
-    $('#insightList').multiselect({
-      enableClickableOptGroups: true
-    });
-</script>-->
-
-
