@@ -33,15 +33,17 @@
             <div class="row text-center">  
                 <!-- A basic setup of simple mode filter controls, all you have to do is use data-filter="all"
                 for an unfiltered gallery and then the values of your categories to filter between them -->
-                <ul class="simplefilter">
-                    <li class="active" data-filter="all">All</li>
-                    <li data-filter="1">FRUITS</li>
-                    <li data-filter="2">VEGETABLES</li>
-                    <li data-filter="3">BERRIES</li>
-                    <li data-filter="4">FOOD</li>
-                    <li data-filter="5">PLANTING</li> 
-                    <li data-filter="2">ORGANIC</li>
-                    <li data-filter="4">SELECTING</li>   
+
+                <!-- filterizr705 if(!target){ var target = 0; }
+                    
+                -->
+                <ul class="simplefilter"> 
+                    <li class="active" data-filter="all">Sve</li>
+                    <?php foreach ($this->portfoliosCategories as $category) { ?>
+                        <li  data-filter="<?php echo $this->escape($category['id']); ?>">
+                            <?php echo $this->escape($category['name']); ?>
+                        </li>
+                    <?php } ?>
                 </ul>
             </div>
             

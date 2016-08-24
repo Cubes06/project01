@@ -11,3 +11,9 @@
 Za template:
  - prepravljen je footer (nije centriran)
  - 
+
+
+
+1. Open jquery.fiterizr.js
+2. Scroll to line 705 (_handleFiltering: function(target))
+3. Add this code in the beginning of the function if(!target){ var target = 0; }

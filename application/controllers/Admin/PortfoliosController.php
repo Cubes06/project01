@@ -32,17 +32,39 @@
             
             $portfolios = $cmsPortfoliosDbTable->search(array(
                 'filters' => array(
-                    //'status' => Application_Model_DbTable_CmsPortfolios::STATUS_DISABLED
-                    //'first_name_search' => 'Ale'
-                    //'first_name' => array('Aleksandra', 'Bojan')
-                    //'id' => array(1, 3, 5, 6)
+                    
                 ),
                 'orders' => array(
                     'order_number' => 'ASC'
                 )
             ));
             
-            $this->view->portfolios = $portfolios;
+            
+            $cmsPorfolioCategoriesDbTable = new Application_Model_DbTable_CmsPortfoliosCategories();
+
+            
+            $formated_portfolios = array();
+            
+            foreach ($portfolios as $key => $value) {
+                $cats = array();
+                if (isset($value['data_categories']) && !is_array($value['data_categories'])) {
+                    $cats = explode(', ', $value['data_categories']);
+                }
+                
+                $value['data_categories'] = "";
+                foreach ($cats as $key => $catValue) { 
+                    $c = $cmsPorfolioCategoriesDbTable->getPortfolioCategoryNameById($catValue);
+    
+                    $value['data_categories'] .= $c . ', ';
+                    
+                }
+                //$value['data_categories'] = substr($value['data_categories'], 0, -2);
+                $value['data_categories'] = rtrim($value['data_categories'], ', ');
+                $line = $value;
+                $formated_portfolios[] = $line;
+            }
+            
+            $this->view->portfolios = $formated_portfolios;
             $this->view->systemMessages = $systemMessages;
         }
         

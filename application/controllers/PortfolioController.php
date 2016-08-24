@@ -38,16 +38,23 @@
             $select = $cmsPortfoliosDbTable->select();
             $select->where('status = ?', Application_Model_DbTable_CmsPortfolios::STATUS_ENABLED)
                     ->order('order_number ASC');
-//                    ->order('first_name')
-//                    ->order('last_name')
-//                    ->limitPage(2, 3);
-            
             //debug za db select - vrace se sql upit
             //die($select->assemble());
                    
             $portfolios = $cmsPortfoliosDbTable->fetchAll($select);
             
+            
+            $cmsPorfolioCategoriesDbTable = new Application_Model_DbTable_CmsPortfoliosCategories();
+            $portfoliosCategories = $cmsPorfolioCategoriesDbTable->search(array(
+                'filters' => array(
+                ),
+                'orders' => array(
+                    'order_number' => 'ASC'
+                )
+            ));
+            
             $this->view->portfolios = $portfolios;
+            $this->view->portfoliosCategories = $portfoliosCategories;
          
         }
 
