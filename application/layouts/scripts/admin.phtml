@@ -96,11 +96,35 @@ $user = Zend_Auth::getInstance()->getIdentity();
                             <a href="<?php echo $this->url(array('controller' => 'admin_filemanager'), 'default', true); ?>"><i class="fa fa-files-o fa-fw"></i> Filemanager</a>
                         </li>
                         <li>
-                            <a href="<?php echo $this->url(array('controller' => 'admin_users'), 'default', true); ?>"><i class="fa fa-user fa-fw"></i> Users</a>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> Users<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse in" aria-expanded="false">
+                                <li>
+                                    <a href="<?php echo $this->url(array('controller' => 'admin_users'), 'default', true); ?>">All Users</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo $this->url(array('controller' => 'admin_users', 'action' => 'add'), 'default', true); ?>"> New User</a>
+                                </li>
+                                
+                            </ul>
                         </li>
                         <li>
-                            <a href="<?php echo $this->url(array('controller' => 'admin_portfolios'), 'default', true); ?>"><i class="fa fa-paper-plane fa-fw"></i> Portfolios</a>
+                            <a href="#"><i class="fa fa-paper-plane fa-fw"></i> Portfolios<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse in" aria-expanded="true">
+                                <li>
+                                    <a href="<?php echo $this->url(array('controller' => 'admin_portfolios'), 'default', true); ?>">All Portfolios</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo $this->url(array('controller' => 'admin_portfolios', 'action' => 'add'), 'default', true); ?>"> New Portfolio</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo $this->url(array('controller' => 'admin_portfolioscategories'), 'default', true); ?>" >Categories</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo $this->url(array('controller' => 'Portfolio'), 'default', true); ?>" target='_blank'>View live</a>
+                                </li>
+                            </ul>
                         </li>
+                        
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
