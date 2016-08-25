@@ -21,7 +21,7 @@
                     <button data-action="save-order" class="btn btn-success" style="display: none;"><i class="glyphicon glyphicon-save" ></i> Save order</button>
                     <button data-action="toggle-sort" class="btn btn-default"><i class="glyphicon glyphicon-list"></i> Change order</button>
                     <a 
-                        href=" <?php echo $this->url(array('controller' => 'admin_portfolioscategories_categories', 'action' => 'add'), 'default', true); ?>" type="button" 
+                        href=" <?php echo $this->url(array('controller' => 'admin_portfolioscategories', 'action' => 'add'), 'default', true); ?>" type="button" 
                         class="btn btn-default"
                         ><i class="glyphicon glyphicon-plus"></i> Add portfolio
                     </a>
@@ -52,10 +52,6 @@
                                         <td class="text-center">
                                             <div class="btn-group btn-group-sm" role="group" aria-label="...">
                                                 <a 
-                                                    href=" <?php echo $this->portfolioUrl($portfolio); ?> "
-                                                    target="_blank"
-                                                    type="button" class="btn btn-default" title="preview"><i class="glyphicon glyphicon-eye-close"></i></a>
-                                                <a 
                                                     href=" <?php echo $this->url(array('controller' => 'admin_portfolioscategories', 'action' => 'edit', 'id' => $portfolio['id']), 'default', true) ?> "
                                                     type="button" class="btn btn-default" title="edit"><i class="glyphicon glyphicon-pencil"></i></a>
                                                 <button type="button" data-portfolio-id=" <?php echo $this->escape($portfolio['id']); ?> " data-action="enable" class="btn btn-default" title="enable"><i class="glyphicon glyphicon-ok"></i></button>
@@ -74,10 +70,6 @@
                                         <td> <?php echo $this->escape($portfolio['description']); ?> </td>
                                         <td class="text-center">
                                             <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                                                <a 
-                                                    href=" <?php echo $this->portfolioUrl($portfolio); ?> "
-                                                    target="_blank"
-                                                    type="button" class="btn btn-default" title="preview"><i class="glyphicon glyphicon-eye-open"></i></a>
                                                 <a 
                                                     href=" <?php echo $this->url(array('controller' => 'admin_portfolioscategories', 'action' => 'edit', 'id' => $portfolio['id']), 'default', true) ?> "
                                                     type="button" class="btn btn-default" title="edit"><i class="glyphicon glyphicon-pencil"></i></a>

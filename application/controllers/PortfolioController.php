@@ -34,19 +34,20 @@
             /////////////////////////////////////////////////////
             
             $cmsPortfoliosDbTable = new Application_Model_DbTable_CmsPortfolios();
-            // $select jed objekat klase Zend Db
-            $select = $cmsPortfoliosDbTable->select();
-            $select->where('status = ?', Application_Model_DbTable_CmsPortfolios::STATUS_ENABLED)
-                    ->order('order_number ASC');
-            //debug za db select - vrace se sql upit
-            //die($select->assemble());
-                   
-            $portfolios = $cmsPortfoliosDbTable->fetchAll($select);
+            $portfolios = $cmsPortfoliosDbTable->search(array(
+                'filters' => array(
+                    'status' => Application_Model_DbTable_CmsPortfolios::STATUS_ENABLED
+                ),
+                'orders' => array(
+                    'order_number' => 'ASC'
+                )
+            ));
             
             
             $cmsPorfolioCategoriesDbTable = new Application_Model_DbTable_CmsPortfoliosCategories();
             $portfoliosCategories = $cmsPorfolioCategoriesDbTable->search(array(
                 'filters' => array(
+                    'status' => Application_Model_DbTable_CmsPortfoliosCategories::STATUS_ENABLED
                 ),
                 'orders' => array(
                     'order_number' => 'ASC'

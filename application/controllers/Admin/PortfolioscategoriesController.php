@@ -4,14 +4,6 @@
 
     class Admin_PortfolioscategoriesController extends Zend_Controller_Action {
         
-        private $_widhtXL = 1060;
-        private $_heightXL = 23;
-      
-        private $_widhtL = 748;
-        private $_heightL = 748;
-        
-        private $_widhtS = 100;
-        private $_heightS = 100;
         
         public function indexAction() {
             
@@ -22,21 +14,8 @@
                 'errors' => $flashMessenger->getMessages('errors')
             );
             
-            // prikaz svih portfolioCategory-a
+            
             $cmsPortfoliocategoriesDbTable = new Application_Model_DbTable_CmsPortfoliosCategories();
-            
-            
-            
-            // $select je od objekat klase Zend_Db_Select
-//            $select = $cmsPortfoliocategoriesDbTable->select();
-//            $select->order('order_number ASC');
-            
-            
-            //debug za db select - vrace se sql upit
-            //die($select->assemble());
-                   
-//            $portfolioCategories = $cmsPortfoliocategoriesDbTable->fetchAll($select);
-            
             $portfolioCategories = $cmsPortfoliocategoriesDbTable->search(array(
                 'filters' => array(
                     //'status' => Application_Model_DbTable_CmsPortfoliosCategories::STATUS_DISABLED
@@ -64,7 +43,7 @@
                 'errors' => $flashMessenger->getMessages('errors'),
             );
 
-            $form = new Application_Form_Admin_PortfoliocategoryAdd();
+            $form = new Application_Form_Admin_PortfolioCategoryAdd();
             
             //default form data
             $form->populate(array(
@@ -82,51 +61,20 @@
                     //get form data
                     $formData = $form->getValues();
 
-                    //remove key portfolioCategory_photo from form data because there is no column 'portfolioCategory_photo' in cms_portfolioCategories table
-                    unset($formData['portfolioCategory_photo']);
                     
                     $cmsPortfoliocategoriesTable = new Application_Model_DbTable_CmsPortfoliosCategories();
 
                     //insert portfolioCategory returns ID of the new portfolioCategory
                     $portfolioCategoryId = $cmsPortfoliocategoriesTable->insertPortfoliocategory($formData);
 
-                    if ($form->getElement('portfolioCategory_photo')->isUploaded()) {
-                        //photo is uploaded
 
-                        $fileInfos = $form->getElement('portfolioCategory_photo')->getFileInfo('portfolioCategory_photo');
-                        $fileInfo = $fileInfos['portfolioCategory_photo'];
-
-
-                        try {
-                            //open uploaded photo in temporary directory
-                            $portfolioCategoryPhoto = Image::make($fileInfo['tmp_name']);
-
-                            $portfolioCategoryPhoto->fit(150, 150);
-
-                            $portfolioCategoryPhoto->save(PUBLIC_PATH . '/uploads/portfolioCategories/' . $portfolioCategoryId . '.jpg');
-                        }
-                        catch (Exception $ex) {
-
-                            $flashMessenger->addMessage('Portfoliocategory has been saved but error occured during image processing', 'errors');
-                            //redirect to same or another page
-                            $redirector = $this->getHelper('Redirector');
-                            $redirector->setExit(true)
-                                    ->gotoRoute(array(
-                                        'controller' => 'admin_portfolioCategories',
-                                        'action' => 'edit',
-                                        'id' => $portfolioCategoryId
-                                            ), 'default', true);
-                        }
-                        //$fileInfo = $_FILES['portfolioCategory_photo'];
-                    }
-
-                    $flashMessenger->addMessage('Portfoliocategory has been saved', 'success');
+                    $flashMessenger->addMessage('Portfolio category has been saved', 'success');
                     
                     //redirect to same or another page
                     $redirector = $this->getHelper('Redirector');
                     $redirector->setExit(true)
                             ->gotoRoute(array(
-                                'controller' => 'admin_portfolioCategories',
+                                'controller' => 'admin_portfolioscategories',
                                 'action' => 'index'
                                     ), 'default', true);
                 } 
@@ -165,7 +113,7 @@
                 'errors' => $flashMessenger->getMessages('errors'),
             );
 
-            $form = new Application_Form_Admin_PortfoliocategoryEdit();
+            $form = new Application_Form_Admin_PortfolioCategoryEdit();
             
             // kad prvi put dolazimo onda je get method, a ako smo preko forme onda je post method
             if ($request->isPost() && $request->getPost('task') === 'update') {
@@ -180,30 +128,6 @@
                         //get form data
                         $formData = $form->getValues();
 
-                        unset($formData['portfolioCategory_photo']);
-
-                        if ($form->getElement('portfolioCategory_photo')->isUploaded()) {
-                            //photo is uploaded
-
-                            $fileInfos = $form->getElement('portfolioCategory_photo')->getFileInfo('portfolioCategory_photo');
-                            $fileInfo = $fileInfos['portfolioCategory_photo'];
-
-                            try {
-                                //open uploaded photo in temporary directory
-                                $portfolioCategoryPhoto = Image::make($fileInfo['tmp_name']);
-
-                                $portfolioCategoryPhoto->fit(150, 150);
-
-                                $portfolioCategoryPhoto->save(PUBLIC_PATH . '/uploads/portfolioCategories/' . $portfolioCategory['id'] . '.jpg');
-
-                            } 
-                            catch (Exception $ex) {
-
-                                    throw new Application_Model_Exception_InvalidInput('Error occured during image processing');
-
-                            }
-                            //$fileInfo = $_FILES['portfolioCategory_photo'];
-                        }
                         
                         //Radimo update postojeceg zapisa u tabeli
                         $cmsPortfoliocategoriesTable->updatePortfoliocategory($portfolioCategory['id'], $formData);
@@ -216,7 +140,7 @@
                         $redirector->setExit(true)
                                    ->gotoRoute(
                                             array(
-                                                'controller' => 'admin_portfolioCategories',
+                                                'controller' => 'admin_portfolioscategories',
                                                 'action' => 'index'
                                             ), 
                                            'default', 
@@ -250,7 +174,7 @@
                 $redirector = $this->getHelper('Redirector');
                 $redirector->setExit(true)
                         ->gotoRoute(array(
-                            'controller' => 'admin_portfolioCategories',
+                            'controller' => 'admin_portfolioscategories',
                             'action' => 'index'
                             ), 'default', true);
             }
@@ -272,11 +196,11 @@
                 }
 
                 $cmsPortfoliocategoriesTable->deletePortfoliocategory($id);
-                $flashMessenger->addMessage('Portfoliocategory ' . $portfolioCategory['first_name'] . ' ' . $portfolioCategory['last_name'] . ' has been deleted.', 'success');
+                $flashMessenger->addMessage('Portfoliocategory ' . $portfolioCategory['name'] . ' has been deleted.', 'success');
                     $redirector = $this->getHelper('Redirector');
                     $redirector->setExit(true)
                             ->gotoRoute(array(
-                                'controller' => 'admin_portfolioCategories',
+                                'controller' => 'admin_portfolioscategories',
                                 'action' => 'index'
                                 ), 'default', true);
             } 
@@ -285,7 +209,7 @@
                 $redirector = $this->getHelper('Redirector');
                 $redirector->setExit(true)
                         ->gotoRoute(array(
-                            'controller' => 'admin_portfolioCategories',
+                            'controller' => 'admin_portfolioscategories',
                             'action' => 'index'
                             ), 'default', true);
             }
@@ -303,7 +227,7 @@
                 $redirector = $this->getHelper('Redirector');
                 $redirector->setExit(true)
                         ->gotoRoute(array(
-                            'controller' => 'admin_portfolioCategories',
+                            'controller' => 'admin_portfolioscategories',
                             'action' => 'index'
                             ), 'default', true);
             }
@@ -325,11 +249,11 @@
                 }
 
                 $cmsPortfoliocategoriesTable->disablePortfoliocategory($id);
-                $flashMessenger->addMessage('Portfoliocategory ' . $portfolioCategory['first_name'] . ' ' . $portfolioCategory['last_name'] . ' has been disabled.', 'success');
+                $flashMessenger->addMessage('Portfoliocategory ' . $portfolioCategory['name'] . ' has been disabled.', 'success');
                     $redirector = $this->getHelper('Redirector');
                     $redirector->setExit(true)
                             ->gotoRoute(array(
-                                'controller' => 'admin_portfolioCategories',
+                                'controller' => 'admin_portfolioscategories',
                                 'action' => 'index'
                                 ), 'default', true);
             } 
@@ -338,7 +262,7 @@
                 $redirector = $this->getHelper('Redirector');
                 $redirector->setExit(true)
                         ->gotoRoute(array(
-                            'controller' => 'admin_portfolioCategories',
+                            'controller' => 'admin_portfolioscategories',
                             'action' => 'index'
                             ), 'default', true);
             }
@@ -358,7 +282,7 @@
                 $redirector = $this->getHelper('Redirector');
                 $redirector->setExit(true)
                         ->gotoRoute(array(
-                            'controller' => 'admin_portfolioCategories',
+                            'controller' => 'admin_portfolioscategories',
                             'action' => 'index'
                             ), 'default', true);
             }
@@ -380,11 +304,11 @@
                 }
 
                 $cmsPortfoliocategoriesTable->enablePortfoliocategory($id);
-                $flashMessenger->addMessage('Portfoliocategory ' . $portfolioCategory['first_name'] . ' ' . $portfolioCategory['last_name'] . ' has been enabled.', 'success');
+                $flashMessenger->addMessage('Portfoliocategory ' . $portfolioCategory['name'] . ' has been enabled.', 'success');
                     $redirector = $this->getHelper('Redirector');
                     $redirector->setExit(true)
                             ->gotoRoute(array(
-                                'controller' => 'admin_portfolioCategories',
+                                'controller' => 'admin_portfolioscategories',
                                 'action' => 'index'
                                 ), 'default', true);
             } 
@@ -393,7 +317,7 @@
                 $redirector = $this->getHelper('Redirector');
                 $redirector->setExit(true)
                         ->gotoRoute(array(
-                            'controller' => 'admin_portfolioCategories',
+                            'controller' => 'admin_portfolioscategories',
                             'action' => 'index'
                             ), 'default', true);
             }
@@ -413,7 +337,7 @@
                 $redirector = $this->getHelper('Redirector');
                 $redirector->setExit(true)
                         ->gotoRoute(array(
-                            'controller' => 'admin_portfolioCategories',
+                            'controller' => 'admin_portfolioscategories',
                             'action' => 'index'
                             ), 'default', true);
             }
@@ -445,7 +369,7 @@
                 $redirector = $this->getHelper('Redirector');
                 $redirector->setExit(true)
                         ->gotoRoute(array(
-                            'controller' => 'admin_portfolioCategories',
+                            'controller' => 'admin_portfolioscategories',
                             'action' => 'index'
                             ), 'default', true);
             }
@@ -454,7 +378,7 @@
                 $redirector = $this->getHelper('Redirector');
                 $redirector->setExit(true)
                         ->gotoRoute(array(
-                            'controller' => 'admin_portfolioCategories',
+                            'controller' => 'admin_portfolioscategories',
                             'action' => 'index'
                             ), 'default', true);
             }
@@ -462,7 +386,7 @@
             $redirector = $this->getHelper('Redirector');
                 $redirector->setExit(true)
                         ->gotoRoute(array(
-                            'controller' => 'admin_portfolioCategories',
+                            'controller' => 'admin_portfolioscategories',
                             'action' => 'index'
                             ), 'default', true);          
         }

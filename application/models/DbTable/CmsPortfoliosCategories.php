@@ -71,7 +71,7 @@
         
         /**
          * @param array $portfolioCategory  Associative array as cms_portfolioCategories table columns or NULL if not found
-         * @return int $id od novog usera
+         * @return int $id 
          */
         public function insertPortfolioCategory($portfolioCategory) {
             
@@ -104,12 +104,12 @@
          */
         public function deletePortfolioCategory($id) {
 		
-            $portfolioCategoryPhotoFilePath = PUBLIC_PATH . '/uploads/portfolioCategories/' . $id . '.jpg';
-            
-            if (is_file($portfolioCategoryPhotoFilePath)) {
-                //delete portfolioCategory photo file
-                unlink($portfolioCategoryPhotoFilePath);
-            }
+//            $portfolioCategoryPhotoFilePath = PUBLIC_PATH . '/uploads/portfolioCategories/' . $id . '.jpg';
+//            
+//            if (is_file($portfolioCategoryPhotoFilePath)) {
+//                //delete portfolioCategory photo file
+//                unlink($portfolioCategoryPhotoFilePath);
+//            }
             
             //portfolioCategory who is going to be deleted
             $portfolioCategory = $this->getPortfolioCategoryById($id);
@@ -151,7 +151,7 @@
         public function getActivePortfolioCategories() {
             $select = $this->select();
             
-            $select->from('cms_portfolioCategories', array("num" => "COUNT(*)"))
+            $select->from('cms_portfolio_categories', array("num" => "COUNT(*)"))
                    ->where('status = ?', self::STATUS_ENABLED);
 
             $row = $this->fetchRow($select);
@@ -168,7 +168,7 @@
         public function getTotalPortfolioCategories() {
             $select = $this->select();
             
-            $select->from('cms_portfolioCategories', array("num" => "COUNT(*)"));
+            $select->from('cms_portfolio_categories', array("num" => "COUNT(*)"));
 
             $row = $this->fetchRow($select);
 
