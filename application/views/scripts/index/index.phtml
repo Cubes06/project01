@@ -1,17 +1,30 @@
     <main>
         <!-- HEADER ENDS --> 
         <div class="container-fluid">
+            
+          
+            
             <section id="myCarousel" class="carousel slide">
 
 
                 <!-- Wrapper for Slides -->
                 <div id="mainImg" class="carousel-inner">
                     <div class="item active">
-                        <!-- Set the first background image using inline CSS below. -->
-<!--                        <img src="/front/img/slide1.png">                   -->
-                        <img src="/front/img/test/slide1.jpg" style="width: 100%;"> 
+                        <img src="/front/img/test/slide3.jpg" alt=""/>
                     </div>
-                    <div class="item">
+                    <?php foreach ($this->indexSlides as $indexSlide) { ?>
+                        <div class="item">
+                            <img src="<?php echo $this->indexSlideImgUrl($indexSlide); ?>" alt="" style="width: 100%;"/>
+                        </div>
+                    <?php } ?> 
+                    
+                    
+<!--                    <div class="item active">
+                         Set the first background image using inline CSS below. 
+                        <img src="/front/img/slide1.png">                   
+                        <img src="/front/img/test/slide1.jpg" style="width: 100%;"> 
+                    </div>-->
+<!--                    <div class="item">
                         <img src="/front/img/test/slide2.jpg" alt="" style="width: 100%;"/>
                     </div>
                     <div class="item">
@@ -22,7 +35,7 @@
                     </div>
                     <div class="item">
                         <img src="/front/img/test/slide5.jpg" alt=""/>
-                    </div>
+                    </div>-->
 <!--                    <div class="item">
                         <img src="/front/img/test/slide8.jpg" alt=""/>
                     </div>
