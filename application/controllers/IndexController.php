@@ -65,6 +65,33 @@
             ));
 
             $this->view->indexSlides = $indexSlides;
+            
+            
+            $cmsPortfoliosDbTable = new Application_Model_DbTable_CmsPortfolios();
+            $portfolios = $cmsPortfoliosDbTable->search(array(
+                'filters' => array(
+                    'status' => Application_Model_DbTable_CmsPortfolios::STATUS_ENABLED
+                ),
+                'orders' => array(
+                    'order_number' => 'ASC'
+                )
+            ));
+            
+            
+            $cmsPorfolioCategoriesDbTable = new Application_Model_DbTable_CmsPortfoliosCategories();
+            $portfoliosCategories = $cmsPorfolioCategoriesDbTable->search(array(
+                'filters' => array(
+                    'status' => Application_Model_DbTable_CmsPortfoliosCategories::STATUS_ENABLED
+                ),
+                'orders' => array(
+                    'order_number' => 'ASC'
+                )
+            ));
+            
+            $this->view->portfolios = $portfolios;
+            $this->view->portfoliosCategories = $portfoliosCategories;
+            
+            
         }
 
     }
