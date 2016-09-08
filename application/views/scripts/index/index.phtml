@@ -1,4 +1,29 @@
-    <main>
+    <?php 
+		foreach ($this->portfoliosCategories as $category) { 
+			$string = $category['name'];
+			//$redifined = Application_Model_Misc::clearUrl($category['name']);
+							
+			
+			$url = str_replace ( "'", '', $string );
+			$url = str_replace ( '%20', ' ', $url );
+			$url = preg_replace ( '~[^\\pL_]+~u', '-', $url ); // substitutes anything but letters, numbers and '_' with separator
+			$url = trim ( $url, "-" );
+			$url = iconv ( "utf-8", "us-ascii//TRANSLIT", $url ); // you may opt for your own custom character map for encoding.
+			//$url = strtolower ( $url );
+			$url = preg_replace ( '~[^-a-zA-Z_]+~', '', $url ); // keep only letters, numbers, '_' and separator
+			$url = preg_replace('~\b[a-zA-Z]{1,2}\b\s*~', '', $url);
+			$url = str_replace ( '--', '-', $url );
+			$url = str_replace ( '--', '-', $url );
+
+			//$url = $this->cleanLastDart($url);
+			
+			print_r($url);
+		} 
+		die();
+	?>
+
+
+	<main>
         <!-- HEADER ENDS --> 
         <div class="container-fluid">            
             <section id="myCarousel" class="carousel slide">
@@ -6,7 +31,7 @@
                 <!-- Wrapper for Slides -->
                 <div id="mainImg" class="carousel-inner">
                     <?php $i=0; ?> 
-                    <?php foreach ($this->indexSlides as $indexSlide) { 
+                    <?php foreach ($this->indexSlides as $indexSlide) {
                         if ($i == 0) {
                             ?><div class="item active"><?php
                         }
@@ -15,8 +40,9 @@
                         }
                         $i++;
                         ?>
-                            <img src="<?php echo $this->indexSlideImgUrl($indexSlide); ?>" alt="" style="width: 100%;"/>
-                        </div>
+                        
+							<img src="<?php echo $this->indexSlideImgUrl($indexSlide); ?>" alt="" style="width: 100%;"/>
+						</div>
                     <?php } ?> 
                 </div>
                 <!-- Controls -->
@@ -112,19 +138,11 @@
 
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs text-center" role="tablist">
-                    
-                    <li class="active" data-filter="all">Sve</li>
-                    <?php foreach ($this->portfoliosCategories as $category) { ?>
-                        <li  data-filter="<?php echo $this->escape($category['id']); ?>">
-                            <?php echo $this->escape($category['name']); ?>
-                        </li>
-                    <?php } ?>
-                        
-                        
-                    <li role="presentation" class="active"><a href="#all" aria-controls="all" role="tab" data-toggle="tab">ALL</a></li>
+               
+                    <li role="presentation" class="active"><a href="#all" aria-controls="all" role="tab" data-toggle="tab">Sve</a></li>
                     <?php foreach ($this->portfoliosCategories as $category) { ?>
                         <li role="presentation">
-                            <a href="" aria-controls="" role="tab" data-toggle="tab"><?php echo $this->escape($category['name']); ?></a>
+                            <a href="#<?php echo $this->escape($category['name']); ?>" aria-controls="<?php echo $this->escape($category['name']); ?>" role="tab" data-toggle="tab"><?php echo $this->escape($category['name']); ?></a>
                         </li>
                     <?php } ?>
                         
@@ -146,29 +164,44 @@
                 <div class="tab-content">
                     
                     <div role="tabpanel" class="tab-pane active row" id="all">
-                        
-                        <article class="col-xs-3 col-md-3">  
-                            <figure>
-                                <img src="/front/img/gallery1.png" alt=""/>
-                            </figure>
-                        </article>
-
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery2.png" alt=""/>
-                            </figure>
-                        </article>
-                        <article class="col-xs-3 col-md-3">
-                            <figure>    
-                                <img src="/front/img/gallery3.png" alt=""/>
-                            </figure>
-                        </article>
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery4.png" alt=""/>
-                            </figure>
-                        </article>
+                        <?php 
+							$i = 0;
+							foreach ($this->portfolios as $portfolio) {
+								$portfolioImgUrl = $this->portfolioImgUrl($portfolio); ?>
+								<article class="col-xs-3 col-md-3">
+									<figure>
+										<img class="img-responsive" src="<?php echo $portfolioImgUrl; ?>" alt="<?php echo $this->escape($portfolio["title"]); ?>"></a>
+									</figure>
+								</article>
+								<?php  
+								$i++;
+								if ($i >3) break;
+							} 
+						?> 
                     </div>               
+					
+					<?php foreach ($this->portfoliosCategories as $category) { ?>
+						<div role="tabpanel" class="tab-pane" id="<?php echo $this->escape($category['name']); ?>">
+							<?php 
+								$i=0;
+								foreach ($this->portfolios as $portfolio) {
+									
+									
+									if (in_array($category['id'], explode(', ', $portfolio['data_categories']) )) {
+										$i++; ?>
+										<article class="col-xs-3 col-md-3"> 
+											<figure>
+												<img src="<?php echo $this->escape($this->portfolioImgUrl($portfolio)); ?>" alt=""/>
+											</figure>
+										</article>
+										<?php
+										//break 4;
+									}
+									if ($i > 3) break;
+								} 
+							 ?>
+						</div>
+                    <?php } ?>
 
                     <div role="tabpanel" class="tab-pane" id="fruits">
                         <article class="col-xs-3 col-md-3"> 
