@@ -1,25 +1,25 @@
     <?php 
-		foreach ($this->portfoliosCategories as $category) { 
-			$string = $category['name'];
-			//$redifined = Application_Model_Misc::clearUrl($category['name']);
-							
-			
-			$url = str_replace ( "'", '', $string );
-			$url = str_replace ( '%20', ' ', $url );
-			$url = preg_replace ( '~[^\\pL_]+~u', '-', $url ); // substitutes anything but letters, numbers and '_' with separator
-			$url = trim ( $url, "-" );
-			$url = iconv ( "utf-8", "us-ascii//TRANSLIT", $url ); // you may opt for your own custom character map for encoding.
-			//$url = strtolower ( $url );
-			$url = preg_replace ( '~[^-a-zA-Z_]+~', '', $url ); // keep only letters, numbers, '_' and separator
-			$url = preg_replace('~\b[a-zA-Z]{1,2}\b\s*~', '', $url);
-			$url = str_replace ( '--', '-', $url );
-			$url = str_replace ( '--', '-', $url );
-
-			//$url = $this->cleanLastDart($url);
-			
-			print_r($url);
-		} 
-		die();
+//		foreach ($this->portfoliosCategories as $category) { 
+//			$string = $category['name'];
+//			//$redifined = Application_Model_Misc::clearUrl($category['name']);
+//							
+//			
+//			$url = str_replace ( "'", '', $string );
+//			$url = str_replace ( '%20', ' ', $url );
+//			$url = preg_replace ( '~[^\\pL_]+~u', '-', $url ); // substitutes anything but letters, numbers and '_' with separator
+//			$url = trim ( $url, "-" );
+//			$url = iconv ( "utf-8", "us-ascii//TRANSLIT", $url ); // you may opt for your own custom character map for encoding.
+//			//$url = strtolower ( $url );
+//			$url = preg_replace ( '~[^-a-zA-Z_]+~', '', $url ); // keep only letters, numbers, '_' and separator
+//			$url = preg_replace('~\b[a-zA-Z]{1,2}\b\s*~', '', $url);
+//			$url = str_replace ( '--', '-', $url );
+//			$url = str_replace ( '--', '-', $url );
+//
+//			//$url = $this->cleanLastDart($url);
+//			
+//			print_r($url);
+//		} 
+//		die();
 	?>
 
 
@@ -105,59 +105,19 @@
             </div>
         </section>
                 
-        <div class="container">
-            <!-- Filter Controls - Simple Mode -->
-            <div class="row text-center">  
-                
-                <ul class="simplefilter"> 
-                    <li class="active" data-filter="all">Sve</li>
-                    <?php foreach ($this->portfoliosCategories as $category) { ?>
-                        <li  data-filter="<?php echo $this->escape($category['id']); ?>">
-                            <?php echo $this->escape($category['name']); ?>
-                        </li>
-                    <?php } ?>
-                </ul>
-            </div>
-            
-            
-            <!-- This is the set up of a basic gallery, your items must have the categories they belong to in a data-category
-                attribute, which starts from the value 1 and goes up from there -->
-            <div class="filtr-container">
-                <?php foreach ($this->portfolios as $portfolio) { 
-                    $portfolioImgUrl = $this->portfolioImgUrl($portfolio); ?>
-                    <div class="col-xs-6 col-sm-4 col-md-4 filtr-item" data-category="<?php echo $this->escape($portfolio['data_categories']); ?>">
-                        <a href="<?php echo $this->portfolioUrl($portfolio); ?>"><img class="img-responsive" src="<?php echo $portfolioImgUrl; ?>" alt="<?php echo $this->escape($portfolio["title"]); ?>"></a>
-                    </div>
-                <?php } ?>               
-            </div>
-        </div>
-
+        
         <section class="gallery">
 
             <div class="text-center"> 
 
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs text-center" role="tablist">
-               
                     <li role="presentation" class="active"><a href="#all" aria-controls="all" role="tab" data-toggle="tab">Sve</a></li>
                     <?php foreach ($this->portfoliosCategories as $category) { ?>
                         <li role="presentation">
-                            <a href="#<?php echo $this->escape($category['name']); ?>" aria-controls="<?php echo $this->escape($category['name']); ?>" role="tab" data-toggle="tab"><?php echo $this->escape($category['name']); ?></a>
+                            <a href="#<?php echo $this->escape($category['id']); ?>" aria-controls="<?php echo $this->escape($category['name']); ?>" role="tab" data-toggle="tab"><?php echo $this->escape($category['name']); ?></a>
                         </li>
                     <?php } ?>
-                        
-                        
-                        
-                        
-                        
-                    <li role="presentation" class="active"><a href="#all" aria-controls="all" role="tab" data-toggle="tab">ALL</a></li>
-                    <li role="presentation"><a href="#fruits" aria-controls="fruits" role="tab" data-toggle="tab">FRUITS</a></li>
-                    <li role="presentation"><a href="#vegetables" aria-controls="vegetables" role="tab" data-toggle="tab">VEGETABLES</a></li>
-                    <li role="presentation"><a href="#berries" aria-controls="berries" role="tab" data-toggle="tab">BERRIES</a></li>
-                    <li role="presentation"><a href="#food" aria-controls="food" role="tab" data-toggle="tab">FOOD</a></li>
-                    <li role="presentation"><a href="#planting" aria-controls="planting" role="tab" data-toggle="tab">PLANTING</a></li>
-                    <li role="presentation"><a href="#organic" aria-controls="organic" role="tab" data-toggle="tab">ORGANIC</a></li>
-                    <li role="presentation"><a href="#selecting" aria-controls="selecting" role="tab" data-toggle="tab">SELECTING</a></li>
                 </ul>
 
                 <!-- Tab panes -->
@@ -181,7 +141,7 @@
                     </div>               
 					
 					<?php foreach ($this->portfoliosCategories as $category) { ?>
-						<div role="tabpanel" class="tab-pane" id="<?php echo $this->escape($category['name']); ?>">
+						<div role="tabpanel" class="tab-pane" id="<?php echo $this->escape($category['id']); ?>">
 							<?php 
 								$i=0;
 								foreach ($this->portfolios as $portfolio) {
@@ -202,161 +162,7 @@
 							 ?>
 						</div>
                     <?php } ?>
-
-                    <div role="tabpanel" class="tab-pane" id="fruits">
-                        <article class="col-xs-3 col-md-3"> 
-                            <figure>
-                                <img src="/front/img/gallery2.png" alt=""/>
-                            </figure>
-                        </article>
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery3.png" alt=""/>
-                            </figure>
-                        </article>                        
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery4.png" alt=""/>
-                            </figure>
-                        </article>
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery1.png" alt=""/>
-                            </figure>
-                        </article>                    
-                    </div>                                        
-                    <div role="tabpanel" class="tab-pane" id="vegetables">
-                        <article class="col-xs-3 col-md-3"> 
-                            <figure>
-                                <img src="/front/img/gallery4.png" alt=""/>
-                            </figure>
-                        </article>                       
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery1.png" alt=""/>
-                            </figure>
-                        </article>
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery3.png" alt=""/>
-                            </figure>
-                        </article>
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery2.png" alt=""/>
-                            </figure>
-                        </article>  
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="berries">
-                        <article class="col-xs-3 col-md-3"> 
-                            <figure>
-                                <img src="/front/img/gallery3.png" alt=""/>
-                            </figure>
-                        </article>
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery4.png" alt=""/>
-                            </figure>
-                        </article>
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery1.png" alt=""/>
-                            </figure>
-                        </article>
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery2.png" alt=""/>
-                            </figure>
-                        </article>  
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="food">
-                        <article class="col-xs-3 col-md-3"> 
-                            <figure>
-                                <img src="/front/img/gallery3.png" alt=""/>
-                            </figure>
-                        </article>                        
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery2.png" alt=""/>
-                            </figure>
-                        </article>
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery1.png" alt=""/>
-                            </figure>
-                        </article>
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery4.png" alt=""/>
-                            </figure>
-                        </article>
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="planting">
-                        <article class="col-xs-3 col-md-3"> 
-                            <figure>
-                                <img src="/front/img/gallery1.png" alt=""/>
-                            </figure>
-                        </article>                        
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery4.png" alt=""/>
-                            </figure>
-                        </article>
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery2.png" alt=""/>
-                            </figure>
-                        </article>
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery3.png" alt=""/>
-                            </figure>
-                        </article>
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="organic">
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery3.png" alt=""/>
-                            </figure>
-                        </article>                        
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery1.png" alt=""/>
-                            </figure>
-                        </article>
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery4.png" alt=""/>
-                            </figure>
-                        </article>
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery2.png" alt=""/>
-                            </figure>
-                        </article>
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="selecting">
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery2.png" alt=""/>
-                            </figure>
-                        </article>                        
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery1.png" alt=""/>
-                            </figure>
-                        </article>
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery4.png" alt=""/>
-                            </figure>
-                        </article>
-                        <article class="col-xs-3 col-md-3">
-                            <figure>
-                                <img src="/front/img/gallery3.png" alt=""/>
-                            </figure>
-                        </article>
-                    </div>                                                                     
+                                                                    
                 </div>
             </div>
         </section>

@@ -73,7 +73,7 @@ class Admin_IndexslidesController extends Zend_Controller_Action
 				
 				if ($form->getElement('index_slide_photo')->isUploaded()) {
 					//photo is uploaded
-					
+					$form->getElement('index_slide_photo')->receive();
 					$fileInfos = $form->getElement('index_slide_photo')->getFileInfo('index_slide_photo');
 					$fileInfo = $fileInfos['index_slide_photo'];
 					
@@ -86,9 +86,16 @@ class Admin_IndexslidesController extends Zend_Controller_Action
 						
 						$indexSlidePhoto->save(PUBLIC_PATH . '/uploads/index-slides/' . $indexSlideId . '.jpg');
 						
+						$fileExtension =  pathinfo('/uploads/index-slides/' . $indexSlideId . '.jpg', PATHINFO_EXTENSION);
+						$image = '/uploads/index-slides/' .$indexSlideId . '.jpg';
+
+						$resizeImage = new Application_Model_Resizeimage(PUBLIC_PATH . $image);
+						$resizeImage->resizeTo('300', '200', 'exact');
+						$resizeImage->saveImage(PUBLIC_PATH . substr($image, 0, -(strlen($fileExtension)+1))."-xl.".$fileExtension);
+						
 					} catch (Exception $ex) {
 						
-						$flashMessenger->addMessage('IndexSlide has been saved but error occured during image processing', 'errors');
+								$flashMessenger->addMessage($ex->getMessage().'IndexSlide has been saved but error occured during image processing', 'errors');
 
 						//redirect to same or another page
 						$redirector = $this->getHelper('Redirector');
