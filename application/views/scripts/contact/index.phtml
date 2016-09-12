@@ -1,14 +1,23 @@
-    <main>
+    <?php
+		//print_r(strlen($this->contactInfo['map_id'])); die();
+		$sitemapPage = $this->sitemapPage;
+		$sitemapPageBreadcrumbs = $this->sitemapPageBreadcrumbs;
+	?>
+
+	<main>
+		
         <section class="smallNav"> 
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-xs-12 text-center">
-                        <h2><a href="about.html">About</a></h2>
+                        <h2><?php echo $this->escape($sitemapPage['title']); ?></h2>
                     </div>
                     <div class="col-xs-12 text-center">
                         <ul class="simplefilterFirst">     
-                            <li role="presentation" class="active"><a href="index.html">HOMEPAGE</a></li>
-                            <li role="presentation"><a href="contacts.html">CONTACT</a></li>                   
+							<li role="presentation" class="active"><a href="<?php echo $this->baseUrl('/'); ?>">NASLOVNA</a></li>
+							<?php foreach ($sitemapPageBreadcrumbs as $sitemapPage) { ?>
+								<li role="presentation"><a href="<?php echo $this->sitemapPageUrl($sitemapPage['id']);?>"><?php echo $this->escape($sitemapPage['title']); ?></a></li>
+							<?php }?>
                         </ul> 
                     </div>
                 </div>  
@@ -16,7 +25,8 @@
         </section>
 
         <section class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d22638.214543463546!2d20.42206543162841!3d44.826111204134136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2srs!4v1470981890279" frameborder="0" style="border:0" allowfullscreen></iframe>
+			<div class="row col-md-10 col-md-offset-1" id="map" style=" height: 400px"></div>
+<!--            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d22638.214543463546!2d20.42206543162841!3d44.826111204134136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2srs!4v1470981890279" frameborder="0" style="border:0" allowfullscreen></iframe>-->
         </section>
 
         <section class="informations">
@@ -24,22 +34,24 @@
                 <div class="row">
                     <article class="col-xs-12 col-sm-6 col-md-3 address">
                         <h2>ADDRESS</h2>
-                        <p>2661 Mapleview Drive</p>
-                        <p>Tarpon Springs, FL 34689</p>
-                    </article>
+                        <p><?php echo $this->contactInfo['address'] . ' ' . $this->contactInfo['address_number']; ?></p>
+						<p><?php //echo $this->contactInfo['city']; ?></p>
+					</article>
                     <article class="col-xs-12 col-sm-6 col-md-3 hours">
                         <h2>HOURS</h2>
-                        <p>Weekdays: <span>9:00-18:00</span> </p>
-                        <p>Saturday: <span>11:00-15:00</span></p>
+                        <p>Weekdays: <span><?php echo $this->contactInfo['hours']; ?></span></p>
+                        <p>Weekend: <span>closed</span></p>
                     </article>
                     <article class="col-xs-12 col-sm-6 col-md-3 phone">
                         <h2>PHONE</h2>
-                        <p>Phone:<span> 727-937-3797</span></p>
-                        <p>   Fax: <span>863-256-5533</span></p>                      
+                        <p>Phone:<span><?php echo $this->contactInfo['phone']; ?></span></p>
+						<?php if (isset($this->contactInfo['fax'])) { ?>
+							<p>Fax: <span><?php echo $this->contactInfo['fax']; ?></span></p>             
+						<?php } ?>
                     </article>
                     <article class="col-xs-12 col-sm-6 col-md-3 email">
                         <h2>EMAIL</h2>
-                        <p><a href="mailto:example@mail.com">example@mail.com</a></p>                     
+                        <p><a href="mailto:<?php echo $this->contactInfo['email']; ?>"><?php echo $this->contactInfo['email']; ?></a></p>                     
                     </article>
                 </div> 
             </div>
@@ -47,28 +59,62 @@
         <section class="contactInfo">
             <div class="container-fluid">
                 <div class="row text-center ">
-                    <div class="col-xs-12 col-md-offset-4 col-md-4">
-                        <h2>Contact us &<br>  </h2>
-                        <p>get free quote about organic food</p>                  
+					<h2>Contact us &<br>  </h2>
+					<p>get free quote about organic food</p>
+                    
                         <form>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1"></label>
-                                <input type="text" class="form-control" id="exampleInputName" placeholder="Full Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1"></label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="E-mail Address">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1"></label>
-                                <input type="tel" class="form-control" id="exampleInputPhone" placeholder="Phone Number">
-                            </div>
-                            <textarea class="form-control-static"  rows="5" placeholder="Message"></textarea>
-
-                            <button type="submit" class="btn btn-default">SUBMIT MESSAGE</button>
-                        </form>                                                                                                 
-                    </div> 
+							<div class="col-xs-12 col-md-offset-3 col-md-3">
+								<div class="form-group">
+									<label for="exampleInputEmail1"></label>
+									<input type="text" class="form-control" id="exampleInputName" placeholder="Full Name">
+								</div>
+								<div class="form-group">
+									<label for="exampleInputEmail1"></label>
+									<input type="email" class="form-control" id="exampleInputEmail1" placeholder="E-mail Address">
+								</div>
+								<div class="form-group">
+									<label for="exampleInputEmail1"></label>
+									<input type="tel" class="form-control" id="exampleInputPhone" placeholder="Phone Number">
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-offset-0 col-md-3">
+								<textarea class="form-control-static"  rows="8" placeholder="Message"></textarea>
+							</div>
+							<div class="col-xs-12 col-md-offset-5 col-md-2">
+								<button type="submit" class="btn btn-default">SUBMIT MESSAGE</button>
+							</div>
+						</form>                                                                                                 
+                    
                 </div>
             </div>
         </section>
     </main>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
+	<script type="text/javascript">
+		<?php $this->inlineScript()->captureStart(); ?>
+			function initMap() {
+				var myLatLng = {lat: 44.831213, lng: 20.410245};
+
+				if (latitude && longitude) {
+					myLatLng = {
+						lat: latitude, 
+						lng: longitude
+					};
+				}
+
+				map = new google.maps.Map(document.getElementById('map'), {
+					center: myLatLng,
+					zoom: 15
+				});
+
+//				marker = new google.maps.Marker({
+//					position: myLatLng,
+//					map: map,
+//					animation: google.maps.Animation.DROP,
+//					title: 'Cubes School'
+//				});
+				
+
+			}
+		<?php $this->inlineScript()->captureEnd(); ?>
+	</script>

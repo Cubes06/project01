@@ -4,7 +4,7 @@ class Zend_View_Helper_IndexSlideImgUrl extends Zend_View_Helper_Abstract
 {
 	public function indexSlideImgUrl($indexSlide) {
 		
-		$indexSlideImgFileName = $indexSlide['id'] . '.jpg';
+		$indexSlideImgFileName = $indexSlide['id'] . '-slider.jpg';
 		
 		$indexSlideImgFilePath = PUBLIC_PATH . '/uploads/index-slides/' . $indexSlideImgFileName;                    ;
 		

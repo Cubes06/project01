@@ -22,8 +22,10 @@
             if (!$sitemapPage) {
                 throw new Zend_Controller_Router_Exception('No sitemap page is found for id: ' . $sitemapPageId, 404);
             }
+			$sitemapPageBreadcrumbs = $cmsSitemapPageDbTable->getSitemapPageBreadcrumbs($sitemapPageId);
             
             $this->view->sitemapPage = $sitemapPage;
+			$this->view->sitemapPageBreadcrumbs = $sitemapPageBreadcrumbs;
             
             if ( //check if user is not logged in then preview is not available for disabled pages
                     ($sitemapPage['status'] == Application_Model_DbTable_CmsSitemapPages::STATUS_DISABLED)
@@ -31,6 +33,14 @@
             ) {
                 throw new Zend_Controller_Router_Exception('Sitemap page is disabled');
             }
+			
+			
+			
+			$cmsContactDbTable = new Application_Model_DbTable_CmsContact();
+			$contactInfo = $cmsContactDbTable->getContactById(1);
+			
+			$this->view->contactInfo = $contactInfo;
+			
         }//endf
         
         

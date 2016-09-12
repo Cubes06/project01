@@ -1,24 +1,4 @@
     <?php 
-//		foreach ($this->portfoliosCategories as $category) { 
-//			$string = $category['name'];
-//			//$redifined = Application_Model_Misc::clearUrl($category['name']);
-//							
-//			
-//			$url = str_replace ( "'", '', $string );
-//			$url = str_replace ( '%20', ' ', $url );
-//			$url = preg_replace ( '~[^\\pL_]+~u', '-', $url ); // substitutes anything but letters, numbers and '_' with separator
-//			$url = trim ( $url, "-" );
-//			$url = iconv ( "utf-8", "us-ascii//TRANSLIT", $url ); // you may opt for your own custom character map for encoding.
-//			//$url = strtolower ( $url );
-//			$url = preg_replace ( '~[^-a-zA-Z_]+~', '', $url ); // keep only letters, numbers, '_' and separator
-//			$url = preg_replace('~\b[a-zA-Z]{1,2}\b\s*~', '', $url);
-//			$url = str_replace ( '--', '-', $url );
-//			$url = str_replace ( '--', '-', $url );
-//
-//			//$url = $this->cleanLastDart($url);
-//			
-//			print_r($url);
-//		} 
 //		die();
 	?>
 
@@ -39,9 +19,8 @@
                             ?><div class="item"><?php
                         }
                         $i++;
-                        ?>
-                        
-							<img src="<?php echo $this->indexSlideImgUrl($indexSlide); ?>" alt="" style="width: 100%;"/>
+							?>
+							<img src="<?php echo $this->indexSlideImgUrl($indexSlide); ?>" alt="" style="margin: 0 auto;"/>
 						</div>
                     <?php } ?> 
                 </div>
@@ -58,7 +37,7 @@
         <section id="performance" class="performance text-center">
             <div class="container">         
                 <div class="row">
-                    <div class=" col-sm-6 col-md-3">
+                    <div class=" col-sm-6 col-md-3 col-xs-12">
                         <article class="gmo">                            
                             <figure>
                                 <img src="/front/img/test/circle1.jpg" class="img-responsive img-circle" >
@@ -69,7 +48,7 @@
 
                     </div>
 
-                    <div class=" col-sm-6 col-md-3">
+                    <div class=" col-sm-6 col-md-3 col-xs-12">
                         <article class="premium text-center">                            
                             <figure>
                                 <img src="/front/img/test/circle2.jpg" class="img-responsive img-circle">
@@ -78,7 +57,7 @@
                             <p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet..</p>
                         </article> 
                     </div>
-                    <div class=" col-sm-6 col-md-3">
+                    <div class=" col-sm-6 col-md-3 col-xs-12">
                         <article class="organic text-center">                            
                             <figure>
                                 <img src="/front/img/test/circle3.jpg" class="img-responsive img-circle">
@@ -89,7 +68,7 @@
                         </article> 
 
                     </div>
-                    <div class=" col-sm-6 col-md-3">
+                    <div class=" col-sm-6 col-md-3 col-xs-12">
                         <article class="price text-center">                            
                             <figure>
                                 <img src="/front/img/test/circle4.jpg" class="img-responsive img-circle" >
@@ -106,6 +85,7 @@
         </section>
                 
         
+				
         <section class="gallery">
 
             <div class="text-center"> 
@@ -166,101 +146,8 @@
                 </div>
             </div>
         </section>
-                
-        <section class="about">
-            <div class="container-fluid">
-                <div class="row">
-                    <article class="col-xs-12 col-sm-6">
-                        <figure>
-                            <img src="/front/img/about.png" alt="" class="img-responsive">
-                        </figure>
-                    </article>
-                    <article class="col-xs-12 col-sm-6 aboutText">                        
-                        <h2>About                           
-                        </h2>
-                        <h3>our company</h3>
-                        <p class="description">Invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                        <article class="borderGray">
-
-                            <img src="/front/img/clock.png" alt=""/>
-
-                            <p>35 YEARS EXPERIENCE IN GARDENING BUSINESS</P>
-                        </article>
-                        <article class="borderGray">
-
-                            <img src="/front/img/folder.png" alt=""/>
-
-                            <p>TONES OFF OFFERS & SERVICES</P>
-                        </article> 
-                        <article class="borderGray">
-
-                            <img src="/front/img/people.png" alt=""/>
-
-                            <p>BEST PROFESSIONALS ALL OVER THE WORLD</P>
-
-                        </article>
-                </div>
-            </div>
-        </section>      
-                
-        <section class="customers">
-            <div class="container">
-                <div class="row">
-                    <article class="col-sm-6 ">
-                        <div class="arrow_box">
-                            <div class="row">
-                                <div class="col-xs-3 text-center">
-                                    <span class="fa fa-quote-left"></span>
-                                </div>
-                                <div class="col-xs-9 comment">   
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>  
-                                </div>
-                            </div> 
-                        </div>
-                        <div class="arrow-down"></div>
-                        <div class="row">
-                            <article class="col-xs-5">
-                                <figure>
-                                    <img src="/front/img/customer1.png" alt="" class="img-responsive"/>
-                                </figure>
-                            </article>
-                            <article class="col-xs-7 review">
-                                <h2>Francis M. Hartzell<br>
-                                    <span>CUSTOMER</span>                         
-                                </h2> 
-                            </article>
-                        </div>
-                    </article>
-                    <article class="col-sm-6 ">
-                        <div class="arrow_box">
-                            <div class="row">
-                                <div class="col-xs-3 text-center">
-                                    <span class="fa fa-quote-left"></span>
-                                </div>
-                                <div class="col-xs-9 comment">   
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>  
-                                </div>
-                            </div> 
-                        </div>
-                        <div class="arrow-down"></div>
-                        <div class="row">
-                            <article class="col-xs-5">
-                                <figure>
-                                    <img src="/front/img/customer1.png" alt="" class="img-responsive"/>
-                                </figure>
-                            </article>
-                            <article class="col-xs-7 review">
-                                <h2>Francis M. Hartzell<br>
-                                    <span>CUSTOMER</span>                         
-                                </h2> 
-                            </article>
-                        </div>
-                    </article>
-                </div>
-            </div>  
-        </section> 
-
-        <section class="latestNews text-center">
+				
+		<section class="latestNews text-center">
             <div class="container"> 
                 <h2>Our<br>
                     <span>Latest News</span>
@@ -359,14 +246,102 @@
             </div>
         </section> 
                 
-        <section class="contact">
-            <div class="container-fluid text-center">
-                <h2>You like organic eco food? Buy now!<br>
-                    <span>Just contact us!</span>                    
-                </h2>
-                <a href="#" class="btn btn-primary" role="button">PURCHASE</a>                                          
+        <section class="about">
+            <div class="container-fluid">
+                <div class="row">
+                    <article class="col-xs-12 col-sm-6">
+                        <figure>
+                            <img src="/front/img/about.png" alt="" class="img-responsive">
+                        </figure>
+                    </article>
+                    <article class="col-xs-12 col-sm-6 aboutText">                        
+                        <h2>About                           
+                        </h2>
+                        <h3>our company</h3>
+                        <p class="description">Invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                        <article class="borderGray">
+
+                            <img src="/front/img/clock.png" alt=""/>
+
+                            <p>35 YEARS EXPERIENCE IN GARDENING BUSINESS</P>
+                        </article>
+                        <article class="borderGray">
+
+                            <img src="/front/img/folder.png" alt=""/>
+
+                            <p>TONES OFF OFFERS & SERVICES</P>
+                        </article> 
+                        <article class="borderGray">
+
+                            <img src="/front/img/people.png" alt=""/>
+
+                            <p>BEST PROFESSIONALS ALL OVER THE WORLD</P>
+
+                        </article>
+                </div>
             </div>
-        </section>
+        </section>      
+                
+        <section class="customers">
+            <div class="container">
+                <div class="row">
+                    <article class="col-sm-6 ">
+                        <div class="arrow_box">
+                            <div class="row">
+                                <div class="col-xs-3 text-center">
+                                    <span class="fa fa-quote-left"></span>
+                                </div>
+                                <div class="col-xs-9 comment">   
+                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>  
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="arrow-down"></div>
+                        <div class="row">
+                            <article class="col-xs-5">
+                                <figure>
+                                    <img src="/front/img/customer1.png" alt="" class="img-responsive"/>
+                                </figure>
+                            </article>
+                            <article class="col-xs-7 review">
+                                <h2>Francis M. Hartzell<br>
+                                    <span>CUSTOMER</span>                         
+                                </h2> 
+                            </article>
+                        </div>
+                    </article>
+                    <article class="col-sm-6 ">
+                        <div class="arrow_box">
+                            <div class="row">
+                                <div class="col-xs-3 text-center">
+                                    <span class="fa fa-quote-left"></span>
+                                </div>
+                                <div class="col-xs-9 comment">   
+                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>  
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="arrow-down"></div>
+                        <div class="row">
+                            <article class="col-xs-5">
+                                <figure>
+                                    <img src="/front/img/customer1.png" alt="" class="img-responsive"/>
+                                </figure>
+                            </article>
+                            <article class="col-xs-7 review">
+                                <h2>Francis M. Hartzell<br>
+                                    <span>CUSTOMER</span>                         
+                                </h2> 
+                            </article>
+                        </div>
+                    </article>
+                </div>
+            </div>  
+        </section> 
+
+        
+                
+        
 
         <section class="advantages">
             <div class="container "> 
@@ -460,6 +435,15 @@
                 </div>       
         </section>
                 
+		<section class="contact">
+            <div class="container-fluid text-center">
+                <h2>You like organic eco food? Buy now!<br>
+                    <span>Just contact us!</span>                    
+                </h2>
+                <a href="#" class="btn btn-primary" role="button">PURCHASE</a>                                          
+            </div>
+        </section>
+				
         <section class="informations">
             <div class="container">
                 <div class="row">
@@ -493,3 +477,12 @@
         </section>
         
     </main>
+
+
+	<script type="text/javascript">
+		<?php $this->inlineScript()->captureStart(); ?>
+			$('.carousel').carousel({
+				interval: 100 
+			});
+		<?php $this->inlineScript()->captureEnd(); ?>
+	</script>

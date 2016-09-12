@@ -370,7 +370,7 @@ class Application_Model_DbTable_CmsSitemapPages extends Zend_Db_Table_Abstract
 				
 				$id = $sitemapPageInPath['parent_id'];
 				 
-				//add current page ath the beggining of breadcrumbs array
+				//add current page at the beggining of breadcrumbs array
 				array_unshift($sitemapPagesBreadcrumbs, $sitemapPageInPath);
 				
 			} else {

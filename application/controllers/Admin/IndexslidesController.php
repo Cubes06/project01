@@ -90,8 +90,9 @@ class Admin_IndexslidesController extends Zend_Controller_Action
 						$image = '/uploads/index-slides/' .$indexSlideId . '.jpg';
 
 						$resizeImage = new Application_Model_Resizeimage(PUBLIC_PATH . $image);
-						$resizeImage->resizeTo('300', '200', 'exact');
-						$resizeImage->saveImage(PUBLIC_PATH . substr($image, 0, -(strlen($fileExtension)+1))."-xl.".$fileExtension);
+						$resizeImage->resizeTo('1000', '500', 'maxheight');
+						$resizeImage->saveImage(PUBLIC_PATH . substr($image, 0, -(strlen($fileExtension)+1))."-slider.".$fileExtension);
+						
 						
 					} catch (Exception $ex) {
 						
@@ -131,6 +132,7 @@ class Admin_IndexslidesController extends Zend_Controller_Action
 		$this->view->systemMessages = $systemMessages;
 		$this->view->form = $form;
 	}
+	
 	
 	public function editAction() {
 		

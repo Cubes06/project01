@@ -1,17 +1,18 @@
 <?php
 
-class Application_Model_DbTable_CmsIndexSlides extends Zend_Db_Table_Abstract
-{
+class Application_Model_DbTable_CmsContact extends Zend_Db_Table_Abstract {
+	
+	
 	const STATUS_ENABLED = 1;
 	const STATUS_DISABLED = 0;
 	
-	protected $_name = 'cms_index_slides';
+	protected $_name = 'cms_contact';
 	
 	/**
 	 * @param int $id
-	 * @return null|array Associative array with keys as cms_indexSlides table columns or NULL if not found
+	 * @return null|array Associative array with keys as cms_contact table columns or NULL if not found
 	 */
-	public function getIndexSlideById($id) {
+	public function getContactById($id) {
 		
 		$select = $this->select();
 		$select->where('id = ?', $id);
@@ -27,78 +28,46 @@ class Application_Model_DbTable_CmsIndexSlides extends Zend_Db_Table_Abstract
 		}
 	}
 	
+	
+	/**
+	 * @param array $contact Associative array with keys as column names and values as coumn new values
+	 * @return int ID of new contact
+	 */
+	public function insertContact($contact) {
+		
+		
+		return $this->insert($contact);
+	}
+	
 	/**
 	 * @param int $id
-	 * @param array $indexSlide Associative array with keys as column names and values as coumn new values
+	 * @param array $contact Associative array with keys as column names and values as coumn new values
 	 */
-	public function updateIndexSlide($id, $indexSlide) {
+	public function updateContact($id, $contact) {
 		
-		if (isset($indexSlide['id'])) {
-			//Forbid changing of user id
-			unset($indexSlide['id']);
+		if (isset($contact['id'])) {
+			//Forbid changing of contact id
+			unset($contact['id']);
 		}
 		
-		$this->update($indexSlide, 'id = ' . $id);
+		$this->update($contact, 'id = ' . $id);
 	}
+	
 	
 	/**
 	 * 
-	 * @param array $indexSlide Associative array with keys as column names and values as coumn new values
-	 * @return int The ID of new indexSlide (autoincrement)
-	 * 
+	 * @param int $id ID of contact to delete
 	 */
-	public function insertIndexSlide($indexSlide) {
-		//fetch order number for new indexSlide
-		
-		$select = $this->select();
-		
-		//Sort rows by order_number DESCENDING and fetch one row from the top
-		// with biggest order_number
-		$select->order('order_number DESC');
-		
-		$indexSlideWithBiggestOrderNumber = $this->fetchRow($select);
-		
-		if ($indexSlideWithBiggestOrderNumber instanceof Zend_Db_Table_Row) {
-			
-			$indexSlide['order_number'] = $indexSlideWithBiggestOrderNumber['order_number'] + 1;
-		} else {
-			// table was empty, we are inserting first indexSlide
-			$indexSlide['order_number'] = 1;
-		}
-		
-		$id = $this->insert($indexSlide);
-		
-		return $id;
-	}
-	
-	/**
-	 * 
-	 * @param int $id ID of indexSlide to delete
-	 */
-	public function deleteIndexSlide($id) {
-		
-		$indexSlidePhotoFilePath = PUBLIC_PATH . '/uploads/index-slides/' . $id . '.jpg';
-		if (is_file($indexSlidePhotoFilePath)) {
-			//delete indexSlide photo file
-			unlink($indexSlidePhotoFilePath);
-		}
-		
-		//indexSlide who is going to be deleted
-		$indexSlide = $this->getIndexSlideById($id);
-		
-		$this->update(array(
-			'order_number' => new Zend_Db_Expr('order_number - 1')
-		),
-		'order_number > ' . $indexSlide['order_number']);
+	public function deleteContact($id) {
 		
 		$this->delete('id = ' . $id);
 	}
 	
 	/**
 	 * 
-	 * @param int $id ID of indexSlide to disable
+	 * @param int $id ID of contact to disable
 	 */
-	public function disableIndexSlide($id) {
+	public function disableContact($id) {
 		
 		$this->update(array(
 			'status' => self::STATUS_DISABLED
@@ -107,22 +76,13 @@ class Application_Model_DbTable_CmsIndexSlides extends Zend_Db_Table_Abstract
 	
 	/**
 	 * 
-	 * @param int $id ID of indexSlide to enable
+	 * @param int $id ID of contact to enable
 	 */
-	public function enableIndexSlide($id) {
+	public function enableContact($id) {
 		
 		$this->update(array(
 			'status' => self::STATUS_ENABLED
 		), 'id = ' . $id);
-	}
-	
-	public function updateOrderOfIndexSlides($sortedIds) {
-		
-		foreach ($sortedIds as $orderNumber => $id) {
-			$this->update(array(
-				'order_number' => $orderNumber + 1 // +1 because order_number starts from 1, not from 0
-			), 'id = ' . $id);
-		}
 	}
 	
 	/**
@@ -134,7 +94,7 @@ class Application_Model_DbTable_CmsIndexSlides extends Zend_Db_Table_Abstract
 	 *				'id' => array(3, 8, 11)
 	 *			),
 	 *			'orders' => array(
-	 *				'username' => 'ASC', // key is column , if value is ASC then ORDER BY ASC,
+	 *				'contactname' => 'ASC', // key is column , if value is ASC then ORDER BY ASC,
 	 *				'first_name' => 'DESC', // key is column, if value is DESC then ORDER BY DESC
 	 *			),
 	 *			'limit' => 50, //limit result set to 50 rows
@@ -161,10 +121,13 @@ class Application_Model_DbTable_CmsIndexSlides extends Zend_Db_Table_Abstract
 				
 				switch ($field) {
 					case 'id':
-					case 'title':
-					case 'link_type':
-					case 'status':
-					case 'order_number':
+					case 'address':
+					case 'address_number':
+					case 'map_id':
+					case 'phone':
+					case 'fax':
+					case 'email':
+					case 'hours':
 						
 						if ($orderDirection === 'DESC') {
 							
@@ -229,9 +192,13 @@ class Application_Model_DbTable_CmsIndexSlides extends Zend_Db_Table_Abstract
 				switch ($field) {
 					
 					case 'id':
-					case 'title':
-					case 'link_type':
-					case 'status':
+					case 'address':
+					case 'address_number':
+					case 'map_id':
+					case 'phone':
+					case 'fax':
+					case 'email':
+					case 'hours':
 						
 						if (is_array($value)) {
 							$select->where($field . ' IN (?)', $value);
@@ -240,13 +207,21 @@ class Application_Model_DbTable_CmsIndexSlides extends Zend_Db_Table_Abstract
 						}
 						break;
 					
-					case 'title_search':
+					case 'address_search':
 						
-						$select->where('title LIKE ?', '%' . $value . '%');
+						$select->where('address LIKE ?', '%' . $value . '%');
 						break;
-					case 'description_search':
+					case 'map_id_search':
 						
-						$select->where('description LIKE ?', '%' . $value . '%');
+						$select->where('map_id LIKE ?', '%' . $value . '%');
+						break;
+					case 'email_search':
+						
+						$select->where('email LIKE ?', '%' . $value . '%');
+						break;
+					case 'hours_search':
+						
+						$select->where('hours LIKE ?', '%' . $value . '%');
 						break;
 					
 					case 'id_exclude':
@@ -256,6 +231,15 @@ class Application_Model_DbTable_CmsIndexSlides extends Zend_Db_Table_Abstract
 							$select->where('id NOT IN (?)', $value);
 						} else {
 							$select->where('id != ?', $value);
+						}
+						break;
+					case 'address_exclude':
+						
+						if (is_array($value)) {
+							
+							$select->where('contactname NOT IN (?)', $value);
+						} else {
+							$select->where('contactname != ?', $value);
 						}
 						break;
 				}

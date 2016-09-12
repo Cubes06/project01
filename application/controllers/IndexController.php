@@ -43,13 +43,7 @@
                     'order_number' => 'ASC'
                 )
             ));
-//			?><pre><?php
-//			print_r($portfoliosCategories); die();
-//			foreach ($portfoliosCategories as $key => $value) {
-//				$portfoliosCategories[$value]['name'] = Application_Model_Misc::adjustURL($portfoliosCategories[$value]['name']);
-//				print_r($portfoliosCategories[$value]['name']);
-//			}
-//			die();
+
             $this->view->portfolios = $portfolios;
             $this->view->portfoliosCategories = $portfoliosCategories;
             

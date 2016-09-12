@@ -511,14 +511,16 @@ ul.social li a:hover {
     font-size: 16px;
 }
 
-
+/*.latestNews {
+    background-image: url(../img/news.jpg);
+}*/
 
 
 .latestNews figure{
     height: 246px; 
     position: relative;
     overflow: hidden;
-
+    
 }
 
 
