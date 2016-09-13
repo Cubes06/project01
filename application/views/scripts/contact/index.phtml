@@ -89,32 +89,146 @@
             </div>
         </section>
     </main>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
-	<script type="text/javascript">
-		<?php $this->inlineScript()->captureStart(); ?>
-			function initMap() {
-				var myLatLng = {lat: 44.831213, lng: 20.410245};
 
-				if (latitude && longitude) {
-					myLatLng = {
-						lat: latitude, 
-						lng: longitude
-					};
-				}
+<?php
+    //$this->headLink()->appendStylesheet($this->baseUrl(''));
+    $this->inlineScript()->appendFile('http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js');
+	$this->inlineScript()->appendFile('https://maps.googleapis.com/maps/api/js?key=AIzaSyCl63DjLjiuUgfMShPAK0Jy5peunCa9NZ4&libraries=places&callback=initMap');
+?>
 
-				map = new google.maps.Map(document.getElementById('map'), {
-					center: myLatLng,
-					zoom: 15
+<?php $this->inlineScript()->captureStart(); ?>
+	<script>
+		var latitude = 0;
+		var longitude = 0;
+		var place_id;  
+		var placeSearch, autocomplete;
+
+		var componentForm = {
+			street_number: 'short_name',
+			route: 'long_name',
+			locality: 'long_name',
+			country: 'long_name'
+		};
+
+		var map;
+		var marker;
+
+		$("#findmyPostcode").click(function (event) {
+
+			var result = 0;
+
+			$(".alert").hide();
+
+			event.preventDefault();
+
+			$(".alert").hide();
+			$.ajax({
+				type: "GET",
+				url: "https://maps.googleapis.com/maps/api/geocode/xml?address="+encodeURIComponent($('#address').val())+"&key=AIzaSyCl63DjLjiuUgfMShPAK0Jy5peunCa9NZ4",
+				dataType: "xml",
+				success: processXML,
+				error: error
+
+			});
+
+			function error() {
+				$("#fail2").fadeIn();
+			}
+
+			function processXML(xml) {
+
+				$(xml).find("location").each(function () {
+					latitude = $(this).find("lat").text();
+					//alert(lat);
+					longitude = $(this).find("lng").text();
+					lng = $(this).find("lng").text();
+					$("#success").html("Lat: " + $(this).find("lat").text() + " Lng: " + $(this).find("lng").text() + " place id: " + $(xml).find("place_id").text()).fadeIn();
+					result = 1;
+
+					var coordinates = new google.maps.LatLng(latitude, longitude);
+					map.setCenter(coordinates);
+
+					marker.setPosition(coordinates);
+
 				});
 
-//				marker = new google.maps.Marker({
-//					position: myLatLng,
-//					map: map,
-//					animation: google.maps.Animation.DROP,
-//					title: 'Cubes School'
-//				});
-				
 
+				if (result == 0) {
+					$("#fail").fadeIn();
+				}
+
+			}       
+		});
+
+
+		function initMap() {
+
+			var myLatLng = {lat: 44.831213, lng: 20.410245};
+
+			if (latitude && longitude) {
+				myLatLng = {
+					lat: latitude, 
+					lng: longitude
+				};
 			}
-		<?php $this->inlineScript()->captureEnd(); ?>
+
+			map = new google.maps.Map(document.getElementById('map'), {
+				center: myLatLng,
+				zoom: 15
+			});
+
+			marker = new google.maps.Marker({
+				position: myLatLng,
+				map: map,
+				animation: google.maps.Animation.DROP,
+				title: 'Cubes School'
+			});
+
+
+			marker.addListener('click', toggleBounce);
+
+			var options = {
+				types: ['(cities)'],
+				componentRestrictions: {country: 'rs'}
+			};
+
+
+			autocomplete = new google.maps.places.Autocomplete(
+					(document.getElementById('address')),
+					{types: ['geocode'], componentRestrictions: {country: 'rs'}}
+			);
+			autocomplete.addListener('place_changed', fillInAddress);
+
+		}
+
+		function toggleBounce() {
+			if (marker.getAnimation() !== null) {
+				marker.setAnimation(null);
+			} else {
+				marker.setAnimation(google.maps.Animation.BOUNCE);
+			}
+		}
+
+		function fillInAddress() {
+			// Get the place details from the autocomplete object.
+			var place = autocomplete.getPlace();
+
+			for (var component in componentForm) {
+				document.getElementById(component).innerHTML = '';
+				document.getElementById(component).disabled = false;
+			}
+
+			// Get each component of the address from the place details
+			// and fill the corresponding field on the form.
+			for (var i = 0; i < place.address_components.length; i++) {
+				var addressType = place.address_components[i].types[0];
+				if (componentForm[addressType]) {
+					var val = place.address_components[i][componentForm[addressType]];
+					document.getElementById(addressType).innerHTML = val;
+				}
+			}
+		}addListener('place_changed', fillInAddress);
+
+		}
 	</script>
+<?php $this->inlineScript()->captureEnd(); ?>
